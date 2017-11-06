@@ -12,22 +12,24 @@ import CarpoolKit
 
 class RootViewController: UITableViewController {
 
-    var events: [String] = []
-    
+    var trips: [Trip] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        API.fetchTripsOnce { (trips) in
+            self.trips = trips
+            self.tableView.reloadData()
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return events.count
-        
+        return trips.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
-        cell.textLabel?.text = events[indexPath.row]
+        cell.textLabel?.text = trips[indexPath.row].event.description
         return cell
     }
     
