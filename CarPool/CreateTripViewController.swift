@@ -2,7 +2,6 @@
 //  CreateTripViewController.swift
 //  CarPool
 //
-//  Created by Naina  on 11/6/17.
 //  Copyright © 2017 Riyazh. All rights reserved.
 //
 

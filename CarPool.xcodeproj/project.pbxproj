@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F0841281FB0FFAC00EFDB65 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0841271FB0FFAC00EFDB65 /* CreateTripViewController.swift */; };
 		2F2721801FB0E77800747B8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F27217F1FB0E77800747B8E /* AppDelegate.swift */; };
 		2F2721821FB0E77800747B8E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2721811FB0E77800747B8E /* RootViewController.swift */; };
 		2F2721851FB0E77800747B8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F2721831FB0E77800747B8E /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F0841271FB0FFAC00EFDB65 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
 		2F27217C1FB0E77800747B8E /* CarPool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarPool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F27217F1FB0E77800747B8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F2721811FB0E77800747B8E /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				2F2721811FB0E77800747B8E /* RootViewController.swift */,
 				2F2721911FB0F03E00747B8E /* EventDetailViewController.swift */,
 				2F2721831FB0E77800747B8E /* Main.storyboard */,
+				2F0841271FB0FFAC00EFDB65 /* CreateTripViewController.swift */,
 				2F2721861FB0E77800747B8E /* Assets.xcassets */,
 				2F2721881FB0E77800747B8E /* LaunchScreen.storyboard */,
 				2F27218B1FB0E77800747B8E /* Info.plist */,
@@ -223,6 +226,7 @@
 				2F2721921FB0F03E00747B8E /* EventDetailViewController.swift in Sources */,
 				2F2721821FB0E77800747B8E /* RootViewController.swift in Sources */,
 				2F2721801FB0E77800747B8E /* AppDelegate.swift in Sources */,
+				2F0841281FB0FFAC00EFDB65 /* CreateTripViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
