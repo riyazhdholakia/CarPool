@@ -21,7 +21,6 @@ class EventDetailViewController: UIViewController {
             self.trips = trips
         }
     }
-    
    
     
 }
