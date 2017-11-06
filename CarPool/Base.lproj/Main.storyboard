@@ -37,10 +37,10 @@
             </objects>
             <point key="canvasLocation" x="124" y="84"/>
         </scene>
-        <!--View Controller-->
+        <!--Event Detail View Controller-->
         <scene sceneID="9Rc-aP-cAK">
             <objects>
-                <viewController id="m3O-Ry-EGb" sceneMemberID="viewController">
+                <viewController id="m3O-Ry-EGb" customClass="EventDetailViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mhT-5h-2Y3"/>
                         <viewControllerLayoutGuide type="bottom" id="2Ci-gq-J7c"/>
