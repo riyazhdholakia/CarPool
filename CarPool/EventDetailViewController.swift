@@ -9,7 +9,7 @@
 import UIKit
 import CarpoolKit
 
-class EventDetailViewController: UIViewController {
+class EventDetailViewController: UITableViewController {
     
     var trips: [Trip] = []
     

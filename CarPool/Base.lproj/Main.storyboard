@@ -38,7 +38,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="m3O-Ry-EGb" kind="show" id="z8k-GX-AZt"/>
+                                    <segue destination="Mts-gt-SbO" kind="show" id="kBz-Lc-o2F"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -53,22 +53,32 @@
             <point key="canvasLocation" x="124" y="83.208395802098963"/>
         </scene>
         <!--Event Detail View Controller-->
-        <scene sceneID="9Rc-aP-cAK">
+        <scene sceneID="cKV-cq-afB">
             <objects>
-                <viewController id="m3O-Ry-EGb" customClass="EventDetailViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mhT-5h-2Y3"/>
-                        <viewControllerLayoutGuide type="bottom" id="2Ci-gq-J7c"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mta-JZ-XLl">
+                <tableViewController id="Mts-gt-SbO" customClass="EventDetailViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wXo-r5-tP8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="51M-xh-U2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="u2m-rZ-cG0">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u2m-rZ-cG0" id="M8o-FW-1oh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Mts-gt-SbO" id="x2I-JS-qc4"/>
+                            <outlet property="delegate" destination="Mts-gt-SbO" id="K2e-Hn-6bL"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Grk-lT-1bi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="586"/>
+            <point key="canvasLocation" x="870" y="83"/>
         </scene>
         <!--Create Trip View Controller-->
         <scene sceneID="d5b-Wg-jAF">
@@ -86,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NgF-kZ-n6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1327" y="-140"/>
+            <point key="canvasLocation" x="1625" y="82"/>
         </scene>
     </scenes>
 </document>
