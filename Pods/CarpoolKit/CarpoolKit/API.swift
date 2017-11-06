@@ -48,7 +48,7 @@ private let fakeEvents = [
     Event(id: "1", description: "Visit Grandma in hospital", time: Date(), location: CLLocation()),
     Event(id: "2", description: "Take Arya to faceless men HQ", time: Date(), location: CLLocation()),
     Event(id: "3", description: "Dentist Appt. for Bill", time: Date(), location: CLLocation()),
-    Event(id: "4", description: "Drop off Will at The-Upside-Down", time: Date(), location: CLLocation()),
+    Event(id: "4", description: "Drop off Will at The-Upside-Down", time: Date(), location: CLLocation()), 
 ]
 
 
