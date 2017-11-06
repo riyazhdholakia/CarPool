@@ -11,7 +11,17 @@ import CarpoolKit
 
 class EventDetailViewController: UIViewController {
     
+    var trips: [Trip] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        API.fetchTripsOnce { (trips) in
+            self.trips = trips
+        }
     }
+    
+   
+    
 }
