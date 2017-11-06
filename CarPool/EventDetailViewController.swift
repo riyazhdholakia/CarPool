@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CarpoolKit
 
 class EventDetailViewController: UIViewController {
     
