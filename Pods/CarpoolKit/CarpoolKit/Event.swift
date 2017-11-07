@@ -45,3 +45,21 @@ extension Event {
         self.key = key
     }
 }
+
+extension Event: Equatable {
+    public static func ==(lhs: Event, rhs: Event) -> Bool {
+        return lhs.key == rhs.key
+    }
+}
+
+extension Event: Comparable {
+    public static func <(lhs: Event, rhs: Event) -> Bool {
+        return lhs.time < rhs.time
+    }
+}
+
+extension Event: Hashable {
+    public var hashValue: Int {
+        return key.hashValue
+    }
+}

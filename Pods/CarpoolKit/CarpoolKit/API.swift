@@ -189,6 +189,7 @@ extension DataSnapshot {
         guard let values = self.value as? [String: Any] else { throw API.Error.noChildren }
 
         return try values.map {
+            try checkIsValidJsonType($0.value)
             let data = try JSONSerialization.data(withJSONObject: $0.value)
             var foo: T = try JSONDecoder().decode(T.self, from: data)
             foo.key = $0.key
