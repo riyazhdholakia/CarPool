@@ -2,34 +2,13 @@ import CoreLocation
 
 public struct Event: Codable, Keyed {
     public var key: String!
-
-    enum CodingKey: String {
-        case location = "geohash"
-        case description
-        case time
-        case owner
-    }
-
     public let description: String
     public let owner: User
     public let time: Date
+    let location: String
 
-    let geohash: String
-
-    public var location: CLLocation? {
-        return Geohash(value: geohash)?.location
-    }
-}
-
-func checkIsValidJsonType(_ any: Any) throws {
-    if let _ = any as? NSNumber {
-        throw API.Error.invalidJsonType
-    }
-    if let _ = any as? NSString {
-        throw API.Error.invalidJsonType
-    }
-    if any is NSNull {
-        throw API.Error.invalidJsonType
+    public var clLocation: CLLocation? {
+        return Geohash(value: location)?.location
     }
 }
 
