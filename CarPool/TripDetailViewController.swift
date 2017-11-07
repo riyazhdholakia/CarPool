@@ -40,17 +40,17 @@ class TripDetailViewController: UIViewController {
     func showTripDetails() {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, h:mm a"
-        pickUpDriverNameLabel.text = "Pick up driver name: " + (trip.pickUp?.driver?.name ?? "Unclaimed")
-        dropOffDriverNameLabel.text = "Drop off driver name: " + (trip.dropOff?.driver?.name ?? "Unclaimed")
+        pickUpDriverNameLabel.text = "Pick up driver name: " + (trip.pickUp?.driver.name ?? "Unclaimed")
+        dropOffDriverNameLabel.text = "Drop off driver name: " + (trip.dropOff?.driver.name ?? "Unclaimed")
         //        dropOffDriverPhoneLabel.text = "Drop off driver phone#: " + "\(trip.dropOff?.driver?.phone)"
         //        pickUpDriverPhoneLabel.text = "Pick up driver phone#: " + "\(trip.dropOff?.driver?.phone)"
         dateForEventLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
-        if trip.dropOff?.isClaimed == false {
-            claimDropoffButton.backgroundColor = UIColor.red
-        }
-        if trip.pickUp?.isClaimed == false {
-            claimPickupButton.backgroundColor = UIColor.red
-        }
+//        if trip.dropOff?.isClaimed == false {
+//            claimDropoffButton.backgroundColor = UIColor.red
+//        }
+//        if trip.pickUp?.isClaimed == false {
+//            claimPickupButton.backgroundColor = UIColor.red
+//        }
     }
     @IBAction func onPickupClaimPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Alert", message: "My Alert for test", preferredStyle: UIAlertControllerStyle.alert)
