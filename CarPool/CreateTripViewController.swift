@@ -24,7 +24,6 @@ class CreateTripViewController: UIViewController, CLLocationManagerDelegate {
         
         datePicker.minimumDate = Date()
         locationManager.delegate = self
-        createTrip()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,6 +32,10 @@ class CreateTripViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func onDatePickerSelected(_ sender: UIDatePicker) {
         selectedDate = sender.date
+    }
+    
+    @IBAction func onSubmitPressed(_ sender: UIButton) {
+        createTrip()
     }
     
     func createTrip() {

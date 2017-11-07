@@ -28,15 +28,6 @@ class TripDetailViewController: UIViewController {
         showTripDetails()
     }
     
-    //    public static func claimLeg(leg: Leg, trip: Trip, completion: (Error?) -> Void) {
-    //        guard let index = fakeTrips.index(of: trip) else {
-    //            return completion(Error.noSuchTrip)
-    //        }
-    //
-    //        var trip = fakeTrips[index]
-    //
-    //    }
-    //
     func showTripDetails() {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, h:mm a"
@@ -52,6 +43,7 @@ class TripDetailViewController: UIViewController {
 //            claimPickupButton.backgroundColor = UIColor.red
 //        }
     }
+    
     @IBAction func onPickupClaimPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Alert", message: "My Alert for test", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
@@ -62,7 +54,6 @@ class TripDetailViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         API.claimPickUp(trip: trip) { (error) in
 
-            
         }
     }
     
