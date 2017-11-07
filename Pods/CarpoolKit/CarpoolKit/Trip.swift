@@ -13,6 +13,18 @@ extension Trip: Equatable {
     }
 }
 
+extension Trip: Comparable {
+    public static func <(lhs: Trip, rhs: Trip) -> Bool {
+        return lhs.event.time < rhs.event.time
+    }
+}
+
+extension Trip: Hashable {
+    public var hashValue: Int {
+        return key.hashValue
+    }
+}
+
 extension Trip {
     static func make(key: String, json: [String: Any]) -> Promise<Trip> {
         do {
@@ -27,7 +39,7 @@ extension Trip {
             let pickUp = get(key: "pickUp")
             let event = try Event(json: json, key: "event")
 
-            return Promise(value: Trip(key: key, event: event, pickUp: Leg(driver: pickUp), dropOff: Leg(driver: dropOff)))
+            return Promise(value: Trip(key: key, event: event, pickUp: pickUp.map(Leg.init), dropOff: dropOff.map(Leg.init)))
         } catch {
             return Promise(error: error)
         }

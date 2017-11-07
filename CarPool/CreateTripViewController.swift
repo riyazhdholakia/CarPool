@@ -25,6 +25,11 @@ class CreateTripViewController: UIViewController, CLLocationManagerDelegate {
         createTrip()
     }
     
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
     func createTrip() {
 //        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 //            if let searchLocation = searchBar.text {

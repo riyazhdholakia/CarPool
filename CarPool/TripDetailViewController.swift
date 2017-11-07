@@ -52,7 +52,6 @@ class TripDetailViewController: UIViewController {
             claimPickupButton.backgroundColor = UIColor.red
         }
     }
-    
     @IBAction func onPickupClaimPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Alert", message: "My Alert for test", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
