@@ -40,7 +40,7 @@ class RootViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let eventDetailVC = segue.destination as? EventDetailViewController {
-            eventDetailVC.trips = trips
+            eventDetailVC.trips = trips 
         }
     }
     

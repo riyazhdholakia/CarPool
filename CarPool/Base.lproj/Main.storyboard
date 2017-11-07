@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="124" y="83.208395802098963"/>
         </scene>
-        <!--Event Detail View Controller-->
+        <!--Trip Detail View Controller-->
         <scene sceneID="RMl-va-Yp9">
             <objects>
-                <viewController id="wZx-SJ-mx3" customClass="EventDetailViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wZx-SJ-mx3" customClass="TripDetailViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dzE-zD-McB"/>
                         <viewControllerLayoutGuide type="bottom" id="AVb-hm-Msa"/>

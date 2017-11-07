@@ -13,7 +13,7 @@
 		2F2721851FB0E77800747B8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F2721831FB0E77800747B8E /* Main.storyboard */; };
 		2F2721871FB0E77800747B8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F2721861FB0E77800747B8E /* Assets.xcassets */; };
 		2F27218A1FB0E77800747B8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F2721881FB0E77800747B8E /* LaunchScreen.storyboard */; };
-		2F2721921FB0F03E00747B8E /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2721911FB0F03E00747B8E /* EventDetailViewController.swift */; };
+		2F2721921FB0F03E00747B8E /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2721911FB0F03E00747B8E /* TripDetailViewController.swift */; };
 		600013F5DC10FEBEDAF6D309 /* Pods_CarPool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9514F2CA0FAFBFF2A4467485 /* Pods_CarPool.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		2F2721861FB0E77800747B8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F2721891FB0E77800747B8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F27218B1FB0E77800747B8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F2721911FB0F03E00747B8E /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		2F2721911FB0F03E00747B8E /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
 		40091111EAF070213401F87B /* Pods-CarPool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.debug.xcconfig"; sourceTree = "<group>"; };
 		9514F2CA0FAFBFF2A4467485 /* Pods_CarPool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarPool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C466C0C87604D1F8E5E8439C /* Pods-CarPool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 			children = (
 				2F27217F1FB0E77800747B8E /* AppDelegate.swift */,
 				2F2721811FB0E77800747B8E /* RootViewController.swift */,
-				2F2721911FB0F03E00747B8E /* EventDetailViewController.swift */,
+				2F2721911FB0F03E00747B8E /* TripDetailViewController.swift */,
 				2F2721831FB0E77800747B8E /* Main.storyboard */,
 				2F0841271FB0FFAC00EFDB65 /* CreateTripViewController.swift */,
 				2F2721861FB0E77800747B8E /* Assets.xcassets */,
@@ -223,7 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F2721921FB0F03E00747B8E /* EventDetailViewController.swift in Sources */,
+				2F2721921FB0F03E00747B8E /* TripDetailViewController.swift in Sources */,
 				2F2721821FB0E77800747B8E /* RootViewController.swift in Sources */,
 				2F2721801FB0E77800747B8E /* AppDelegate.swift in Sources */,
 				2F0841281FB0FFAC00EFDB65 /* CreateTripViewController.swift in Sources */,
