@@ -35,6 +35,16 @@ class TripDetailViewController: UIViewController {
         showTripDetails()
     }
     
+    
+//    public static func claimLeg(leg: Leg, trip: Trip, completion: (Error?) -> Void) {
+//        guard let index = fakeTrips.index(of: trip) else {
+//            return completion(Error.noSuchTrip)
+//        }
+//
+//        var trip = fakeTrips[index]
+//
+//    }
+//
     func showTripDetails() {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, h:mm a"
@@ -58,7 +68,9 @@ class TripDetailViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
-        
+//        API.claimLeg(leg: Leg, trip: Trip,) { (<#API.Error?#>) in
+//            <#code#>
+//        }
     }
     
     
@@ -69,7 +81,15 @@ class TripDetailViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        
+        API.claimLeg(leg: claimDropoffButton, trip: sender ) { (<#API.Error?#>) in
+            <#code#>
+        }
+        
+        
     }
+    
+    
     
     
 }
