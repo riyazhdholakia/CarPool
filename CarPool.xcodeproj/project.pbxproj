@@ -19,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		2F0841271FB0FFAC00EFDB65 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
+		2F08412C1FB24BB400EFDB65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "/Users/theAIRBEAST/Desktop/CarPool/GoogleService-Info.plist"; sourceTree = "<absolute>"; };
 		2F27217C1FB0E77800747B8E /* CarPool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarPool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F27217F1FB0E77800747B8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F2721811FB0E77800747B8E /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 				2F0841271FB0FFAC00EFDB65 /* CreateTripViewController.swift */,
 				2F2721861FB0E77800747B8E /* Assets.xcassets */,
 				2F2721881FB0E77800747B8E /* LaunchScreen.storyboard */,
+				2F08412C1FB24BB400EFDB65 /* GoogleService-Info.plist */,
 				2F27218B1FB0E77800747B8E /* Info.plist */,
 			);
 			path = CarPool;

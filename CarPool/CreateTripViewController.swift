@@ -37,7 +37,6 @@ class CreateTripViewController: UIViewController, CLLocationManagerDelegate {
 //            }
 //        }
         API.createTrip(eventDescription: nameOfEventTextField.text!, eventTime: datePicker.date, eventLocation: location) { (trip) in
-            
         }
     }
 }
