@@ -44,7 +44,7 @@ class TripDetailViewController: UIViewController {
         dateForEventLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
     }
     
-    @IBAction func onLegClaimPressed(_ sender: UIButton) {
+    @IBAction func onPickupClaimPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Alert", message: "My Alert for test", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
             print("you have pressed the ok button")
@@ -53,5 +53,16 @@ class TripDetailViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    
+    @IBAction func onDropoffClaimPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Alert", message: "My Alert for test", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
+            print("you have pressed the ok button")
+        }))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
 }
