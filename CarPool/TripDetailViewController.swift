@@ -23,6 +23,10 @@ class TripDetailViewController: UIViewController {
     
     @IBOutlet weak var dateForEventLabel: UILabel!
     
+    @IBOutlet weak var claimDropoffButton: UIButton!
+    
+    @IBOutlet weak var claimPickupButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +43,12 @@ class TripDetailViewController: UIViewController {
         dropOffDriverPhoneLabel.text = "Drop off driver phone#: " + "\(trip.dropOff.driver?.phone)"
         pickUpDriverPhoneLabel.text = "Pick up driver phone#: " + "\(trip.dropOff.driver?.phone)"
         dateForEventLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
+        if trip.dropOff.isClaimed == false {
+            claimDropoffButton.backgroundColor = UIColor.red
+        }
+        if trip.pickUp.isClaimed == false {
+            claimPickupButton.backgroundColor = UIColor.red
+        }
     }
     
     @IBAction func onPickupClaimPressed(_ sender: UIButton) {
