@@ -74,7 +74,7 @@ class TripDetailViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
-        API.claimDropOff(trip: trip) { (error) in
+        API.claimDropOff(trip: trip) { (error) in 
             
         }
     }
