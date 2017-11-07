@@ -26,18 +26,10 @@ class CreateTripViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func createTrip() {
-//        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//            if let searchLocation = searchBar.text {
-//                let geocoder = CLGeocoder()
-//                geocoder.geocodeAddressString(searchLocation, completionHandler: { (placemark, error) in
-//                    if let placemark = placemark {
-//
-//                    }
-//                })
-//            }
-//        }
-        API.createTrip(eventDescription: nameOfEventTextField.text!, eventTime: datePicker.date, eventLocation: location) { (trip) in
-            print(trip)
+        if nameOfEventTextField.text != nil {
+            API.createTrip(eventDescription: nameOfEventTextField.text!, eventTime: datePicker.date, eventLocation: location) { (trip) in
+                print(trip)
+            }
         }
     }
 }
