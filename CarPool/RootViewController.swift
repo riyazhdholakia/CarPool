@@ -33,14 +33,10 @@ class RootViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let eventDetailVC = segue.destination as? EventDetailViewController {
-            eventDetailVC.trips = trips
+            let indexPath = tableView.indexPathForSelectedRow
+            eventDetailVC.trip = trips[(indexPath?.row)!]
         }
     }
     
