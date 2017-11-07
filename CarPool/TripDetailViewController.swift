@@ -14,39 +14,32 @@ class TripDetailViewController: UIViewController {
     var trip: Trip! //always bang after segue
     
     @IBOutlet weak var pickUpDriverNameLabel: UILabel!
-    
     @IBOutlet weak var dropOffDriverNameLabel: UILabel!
-    
     @IBOutlet weak var dropOffDriverPhoneLabel: UILabel!
-    
     @IBOutlet weak var pickUpDriverPhoneLabel: UILabel!
-    
     @IBOutlet weak var dateForEventLabel: UILabel!
-    
     @IBOutlet weak var claimDropoffButton: UIButton!
-    
     @IBOutlet weak var claimPickupButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = trip.event.description
-        
         showTripDetails()
     }
     
     func showTripDetails() {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, h:mm a"
-        pickUpDriverNameLabel.text = "Pick up driver name: " + (trip.pickUp.driver?.name ?? "Unclaimed")
-        dropOffDriverNameLabel.text = "Drop off driver name: " + (trip.dropOff.driver?.name ?? "Unclaimed")
-        dropOffDriverPhoneLabel.text = "Drop off driver phone#: " + "\(trip.dropOff.driver?.phone)"
-        pickUpDriverPhoneLabel.text = "Pick up driver phone#: " + "\(trip.dropOff.driver?.phone)"
+        pickUpDriverNameLabel.text = "Pick up driver name: " + (trip.pickUp?.driver?.name ?? "Unclaimed")
+        dropOffDriverNameLabel.text = "Drop off driver name: " + (trip.dropOff?.driver?.name ?? "Unclaimed")
+//        dropOffDriverPhoneLabel.text = "Drop off driver phone#: " + "\(trip.dropOff?.driver?.phone)"
+//        pickUpDriverPhoneLabel.text = "Pick up driver phone#: " + "\(trip.dropOff?.driver?.phone)"
         dateForEventLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
-        if trip.dropOff.isClaimed == false {
+        if trip.dropOff?.isClaimed == false {
             claimDropoffButton.backgroundColor = UIColor.red
         }
-        if trip.pickUp.isClaimed == false {
+        if trip.pickUp?.isClaimed == false {
             claimPickupButton.backgroundColor = UIColor.red
         }
     }
