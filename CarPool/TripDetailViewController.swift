@@ -27,24 +27,23 @@ class TripDetailViewController: UIViewController {
         title = trip.event.description
         showTripDetails()
     }
-    
-    
-//    public static func claimLeg(leg: Leg, trip: Trip, completion: (Error?) -> Void) {
-//        guard let index = fakeTrips.index(of: trip) else {
-//            return completion(Error.noSuchTrip)
-//        }
-//
-//        var trip = fakeTrips[index]
-//
-//    }
-//
+
+    //    public static func claimLeg(leg: Leg, trip: Trip, completion: (Error?) -> Void) {
+    //        guard let index = fakeTrips.index(of: trip) else {
+    //            return completion(Error.noSuchTrip)
+    //        }
+    //
+    //        var trip = fakeTrips[index]
+    //
+    //    }
+    //
     func showTripDetails() {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, h:mm a"
         pickUpDriverNameLabel.text = "Pick up driver name: " + (trip.pickUp?.driver?.name ?? "Unclaimed")
         dropOffDriverNameLabel.text = "Drop off driver name: " + (trip.dropOff?.driver?.name ?? "Unclaimed")
-//        dropOffDriverPhoneLabel.text = "Drop off driver phone#: " + "\(trip.dropOff?.driver?.phone)"
-//        pickUpDriverPhoneLabel.text = "Pick up driver phone#: " + "\(trip.dropOff?.driver?.phone)"
+        //        dropOffDriverPhoneLabel.text = "Drop off driver phone#: " + "\(trip.dropOff?.driver?.phone)"
+        //        pickUpDriverPhoneLabel.text = "Pick up driver phone#: " + "\(trip.dropOff?.driver?.phone)"
         dateForEventLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
         if trip.dropOff?.isClaimed == false {
             claimDropoffButton.backgroundColor = UIColor.red
@@ -61,11 +60,11 @@ class TripDetailViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
-//        API.claimLeg(leg: Leg, trip: Trip,) { (<#API.Error?#>) in
-//            <#code#>
-//        }
+        API.claimPickUp(trip: trip) { (error) in
+            self.trip.pickUp?.isClaimed
+            
+        }
     }
-    
     
     @IBAction func onDropoffClaimPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Alert", message: "My Alert for test", preferredStyle: UIAlertControllerStyle.alert)
@@ -74,15 +73,9 @@ class TripDetailViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
-        
-        API.claimLeg(leg: claimDropoffButton, trip: sender ) { (<#API.Error?#>) in
-            <#code#>
+        API.claimDropOff(trip: trip) { (error) in
+            self.trip.dropOff?.isClaimed
         }
-        
-        
     }
-    
-    
-    
     
 }
