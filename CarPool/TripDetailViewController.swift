@@ -9,7 +9,7 @@
 import UIKit
 import CarpoolKit
 
-class EventDetailViewController: UIViewController {
+class TripDetailViewController: UIViewController {
     
     //var trip: [Trip] = []
     var trip: Trip! //always bang after segue
