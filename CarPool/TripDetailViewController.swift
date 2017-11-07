@@ -27,7 +27,7 @@ class TripDetailViewController: UIViewController {
         title = trip.event.description
         showTripDetails()
     }
-
+    
     //    public static func claimLeg(leg: Leg, trip: Trip, completion: (Error?) -> Void) {
     //        guard let index = fakeTrips.index(of: trip) else {
     //            return completion(Error.noSuchTrip)
@@ -56,12 +56,13 @@ class TripDetailViewController: UIViewController {
     @IBAction func onPickupClaimPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Alert", message: "My Alert for test", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
+            self.claimPickupButton.backgroundColor = UIColor.white
             print("you have pressed the ok button")
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         API.claimPickUp(trip: trip) { (error) in
-            self.trip.pickUp?.isClaimed
+
             
         }
     }
@@ -69,12 +70,13 @@ class TripDetailViewController: UIViewController {
     @IBAction func onDropoffClaimPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Alert", message: "My Alert for test", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
+            self.claimDropoffButton.backgroundColor = UIColor.white
             print("you have pressed the ok button")
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         API.claimDropOff(trip: trip) { (error) in
-            self.trip.dropOff?.isClaimed
+            
         }
     }
     
