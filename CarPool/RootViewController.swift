@@ -9,7 +9,6 @@
 import UIKit
 import CarpoolKit
 
-
 class RootViewController: UITableViewController {
 
     var trips: [Trip] = []
@@ -17,9 +16,14 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        API.fetchTripsOnce { (trips) in
-            self.trips = trips
-            self.tableView.reloadData()
+        API.fetchTripsOnce { (result) in
+            switch result {
+            case .success(let trips):
+                self.trips = trips
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     

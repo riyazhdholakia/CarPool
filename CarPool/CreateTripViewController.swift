@@ -7,19 +7,37 @@
 
 import UIKit
 import CarpoolKit
+import CoreLocation
 
-
-class CreateTripViewController: UIViewController {
+class CreateTripViewController: UIViewController, CLLocationManagerDelegate {
+    
+    @IBOutlet weak var nameOfEventTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    let location = CLLocation()
+    let locationManager = CLLocationManager()
+    var locationOfEvent = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager.delegate = self
         createTrip()
     }
     
     func createTrip() {
-        API.createTrip(eventDescription: <#T##String#>, eventTime: <#T##Date#>, eventLocation: <#T##CLLocation#>) { (<#Trip#>) in
-            <#code#>
+//        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//            if let searchLocation = searchBar.text {
+//                let geocoder = CLGeocoder()
+//                geocoder.geocodeAddressString(searchLocation, completionHandler: { (placemark, error) in
+//                    if let placemark = placemark {
+//
+//                    }
+//                })
+//            }
+//        }
+        API.createTrip(eventDescription: nameOfEventTextField.text!, eventTime: datePicker.date, eventLocation: location) { (trip) in
+            
         }
     }
 }
