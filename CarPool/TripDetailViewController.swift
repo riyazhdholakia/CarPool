@@ -14,9 +14,13 @@ class TripDetailViewController: UIViewController {
     //var trip: [Trip] = []
     var trip: Trip! //always bang after segue
     
-    @IBOutlet weak var pickUpDriverLabel: UILabel!
+    @IBOutlet weak var pickUpDriverNameLabel: UILabel!
     
-    @IBOutlet weak var dropOffDriverLabel: UILabel!
+    @IBOutlet weak var dropOffDriverNameLabel: UILabel!
+    
+    @IBOutlet weak var dropOffDriverPhoneLabel: UILabel!
+    
+    @IBOutlet weak var pickUpDriverPhoneLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +29,11 @@ class TripDetailViewController: UIViewController {
 //            self.trips = trips
 //        }
     
-        pickUpDriverLabel.text = trip.pickUp.driver?.name
-        dropOffDriverLabel.text = trip.dropOff.driver?.name
+        pickUpDriverNameLabel.text = "Pick up driver name: " + (trip.pickUp.driver?.name)!
+        dropOffDriverNameLabel.text = "Drop off driver name: " + (trip.dropOff.driver?.name)!
+        dropOffDriverPhoneLabel.text = "Drop off driver phone#: " + "\(trip.dropOff.driver?.phone)"
+        pickUpDriverPhoneLabel.text = "Pick up driver phone#: " + "\(trip.dropOff.driver?.phone)"
+        
     }
     
     
