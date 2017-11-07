@@ -9,18 +9,25 @@
 import UIKit
 import CarpoolKit
 
-class EventDetailViewController: UITableViewController {
+class EventDetailViewController: UIViewController {
     
-    var trips: [Trip] = []
+    //var trip: [Trip] = []
+    var trip: Trip! //always bang after segue
     
+    @IBOutlet weak var pickUpDriverLabel: UILabel!
+    
+    @IBOutlet weak var dropOffDriverLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        API.fetchTripsOnce { (trips) in
-            self.trips = trips
-        }
+//        API.fetchTripsOnce { (trips) in
+//            self.trips = trips
+//        }
+    
+        pickUpDriverLabel.text = trip.pickUp.driver?.name
+        dropOffDriverLabel.text = trip.dropOff.driver?.name
     }
-   
+    
     
 }
