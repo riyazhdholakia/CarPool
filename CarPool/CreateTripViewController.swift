@@ -17,12 +17,22 @@ class CreateTripViewController: UIViewController, CLLocationManagerDelegate {
     let location = CLLocation()
     let locationManager = CLLocationManager()
     var locationOfEvent = ""
+    var selectedDate = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        datePicker.minimumDate = Date()
         locationManager.delegate = self
         createTrip()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        datePicker.setDate(selectedDate, animated: true)
+    }
+    
+    @IBAction func onDatePickerSelected(_ sender: UIDatePicker) {
+        selectedDate = sender.date
     }
     
     func createTrip() {

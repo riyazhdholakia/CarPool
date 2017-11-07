@@ -188,6 +188,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="531768479.64158702">
                                     <!--2017-11-07 17:27:59 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="onDatePickerSelected:" destination="tnw-54-FYd" eventType="valueChanged" id="ySU-Z0-SXg"/>
+                                </connections>
                             </datePicker>
                             <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="3ui-Le-7dw">
                                 <rect key="frame" x="0.0" y="402" width="375" height="56"/>
