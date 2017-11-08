@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import CarpoolKit
 
 class LocationsTableViewController: UITableViewController {
     var location: [String] = []

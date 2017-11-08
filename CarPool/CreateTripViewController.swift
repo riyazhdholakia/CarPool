@@ -15,11 +15,10 @@ class CreateTripViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var nameOfEventTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var commentsTextField: UITextField!
-    @IBOutlet weak var searchBarForLocation: UISearchBar!
     @IBOutlet weak var seeLocationOnAMapButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
-    
+    @IBOutlet weak var locationEnteredTextField: UITextField!
     
     let location = CLLocation()
     let locationManager = CLLocationManager()
