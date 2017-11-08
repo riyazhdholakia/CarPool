@@ -11,7 +11,6 @@ public enum API {
         case decode
         case legAndTripAreNotRelated
         case invalidJsonType
-        case invalidType
     }
 
     static func auth() -> Promise<Void> {
@@ -144,16 +143,6 @@ public enum API {
             let name = (try? snap.childSnapshot(forPath: "name").string()) ?? "Anonymous Parent"
             let kids: [Child] = try snap.childSnapshot(forPath: "children").array()
             return User(key: uid, name: name, _children: kids)
-        }
-    }
-
-    public static func fetchUser(id uid: String, completion: @escaping (Result<User>) -> Void) {
-        firstly {
-            fetchUser(id: uid)
-        }.then {
-            completion(.success($0))
-        }.catch {
-            completion(.failure($0))
         }
     }
 

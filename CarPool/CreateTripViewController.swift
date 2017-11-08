@@ -7,7 +7,6 @@
 
 import UIKit
 import CarpoolKit
-import CoreLocation
 import MapKit
 
 class CreateTripViewController: UIViewController {
@@ -24,6 +23,7 @@ class CreateTripViewController: UIViewController {
     let locationManager = CLLocationManager()
     var locationOfEvent = ""
     var selectedDate = Date()
+    var locationsOfEnteredInTextField: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class CreateTripViewController: UIViewController {
             guard let response = response else { return }
             print(response.mapItems)
             
-            //self.mapView.addAnnotations(response.mapItems)
+           // self.locationsOfEnteredInTextField.addAnnotations(response.mapItems)
             
             //            for mapItem in response.mapItems{
             //                self.mapView.addAnnotation(mapItem.placemark)
@@ -90,7 +90,7 @@ class CreateTripViewController: UIViewController {
             
         }
         if let locationsTableVC = segue.destination as? LocationsTableViewController {
-            
+            locationsTableVC.locations = locationsOfEnteredInTextField
         }
     }
 }
@@ -116,5 +116,21 @@ extension CreateTripViewController: CLLocationManagerDelegate {
         print(error)
     }
 }
+
+//extension MKMapItem: MKAnnotation {
+//    public var coordinate: CLLocationCoordinate2D {
+//        return placemark.coordinate
+//    }
+//    
+//    public var title: String? {
+//        return name
+//    }
+//    
+//    public var subTitle: String? {
+//        return phoneNumber
+//    }
+//}
+
+
 
 
