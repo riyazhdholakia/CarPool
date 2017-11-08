@@ -236,6 +236,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onLocationTextFieldPressed:" destination="tnw-54-FYd" eventType="editingDidEndOnExit" id="AHW-C4-HTZ"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.97324361044841379" green="0.81268640515184032" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
