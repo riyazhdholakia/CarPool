@@ -86,7 +86,7 @@ class CreateTripViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let mapVC = segue.destination as? MapViewController {
+        if let mapVC = segue.destination as? MapViewController { 
             
         }
         if let locationsTableVC = segue.destination as? LocationsTableViewController {
@@ -130,7 +130,3 @@ extension CreateTripViewController: CLLocationManagerDelegate {
 //        return phoneNumber
 //    }
 //}
-
-
-
-

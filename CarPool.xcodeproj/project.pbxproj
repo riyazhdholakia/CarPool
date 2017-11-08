@@ -15,6 +15,7 @@
 		2F27218A1FB0E77800747B8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F2721881FB0E77800747B8E /* LaunchScreen.storyboard */; };
 		2F2721921FB0F03E00747B8E /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2721911FB0F03E00747B8E /* TripDetailViewController.swift */; };
 		3C1D0B6CCDA16C5D2520D5E1 /* Pods_CarPool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98B0B0ACB9450520F7801779 /* Pods_CarPool.framework */; };
+		AB01E4211FB3ADBC0096792E /* Savannah.gpx in Resources */ = {isa = PBXBuildFile; fileRef = AB01E4201FB3ADBC0096792E /* Savannah.gpx */; };
 		ABCADDAB1FB36AEF00DA2699 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCADDAA1FB36AEF00DA2699 /* LocationsTableViewController.swift */; };
 		ABCADDAD1FB390BE00DA2699 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCADDAC1FB390BE00DA2699 /* MapViewController.swift */; };
 		ABCE17441FB24FBC002C4044 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABCE17431FB24FBC002C4044 /* GoogleService-Info.plist */; };
@@ -33,6 +34,7 @@
 		4114D736291A9DE7872464B7 /* Pods-CarPool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.release.xcconfig"; sourceTree = "<group>"; };
 		98B0B0ACB9450520F7801779 /* Pods_CarPool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarPool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8E471BD4877CD44B97F78E /* Pods-CarPool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.debug.xcconfig"; sourceTree = "<group>"; };
+		AB01E4201FB3ADBC0096792E /* Savannah.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Savannah.gpx; path = ../../../Documents/Savannah.gpx; sourceTree = "<group>"; };
 		ABCADDAA1FB36AEF00DA2699 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		ABCADDAC1FB390BE00DA2699 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		ABCE17431FB24FBC002C4044 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				ABCADDAC1FB390BE00DA2699 /* MapViewController.swift */,
 				ABCADDAA1FB36AEF00DA2699 /* LocationsTableViewController.swift */,
 				2F0841271FB0FFAC00EFDB65 /* CreateTripViewController.swift */,
+				AB01E4201FB3ADBC0096792E /* Savannah.gpx */,
 				2F2721861FB0E77800747B8E /* Assets.xcassets */,
 				2F2721881FB0E77800747B8E /* LaunchScreen.storyboard */,
 				2F27218B1FB0E77800747B8E /* Info.plist */,
@@ -168,6 +171,7 @@
 				2F27218A1FB0E77800747B8E /* LaunchScreen.storyboard in Resources */,
 				ABCE17441FB24FBC002C4044 /* GoogleService-Info.plist in Resources */,
 				2F2721871FB0E77800747B8E /* Assets.xcassets in Resources */,
+				AB01E4211FB3ADBC0096792E /* Savannah.gpx in Resources */,
 				2F2721851FB0E77800747B8E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
