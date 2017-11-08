@@ -44,6 +44,12 @@ class CreateTripViewController: UIViewController {
         }
     }
     
+    @IBAction func onLocationTextFieldPressed(_ sender: UITextField) {
+        if locationEnteredTextField.text != nil {
+            search(for: locationEnteredTextField.text!)
+        }
+    }
+    
     func search(for query: String) {
         let searchRequest = MKLocalSearchRequest()
         searchRequest.naturalLanguageQuery = query
@@ -52,6 +58,7 @@ class CreateTripViewController: UIViewController {
         search.start { (response, error) in
             guard let response = response else { return }
             print(response.mapItems)
+            //todo take response.mapItems and "save" it to locationsOfEnteredInTextField
             
            // self.locationsOfEnteredInTextField.addAnnotations(response.mapItems)
             
@@ -93,16 +100,17 @@ class CreateTripViewController: UIViewController {
             locationsTableVC.locations = locationsOfEnteredInTextField
         }
     }
+    
+    @IBAction func unwindFromLocationsTableVC(segue: UIStoryboardSegue) {
+        
+    }
+    
 }
 
 extension CreateTripViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
         mapView.setRegion(coordinateRegion, animated: true)
-        
-        if locationEnteredTextField.text != nil {
-            search(for: locationEnteredTextField.text!)
-        }
     }
 }
 
@@ -116,20 +124,6 @@ extension CreateTripViewController: CLLocationManagerDelegate {
         print(error)
     }
 }
-
-//extension MKMapItem: MKAnnotation {
-//    public var coordinate: CLLocationCoordinate2D {
-//        return placemark.coordinate
-//    }
-//    
-//    public var title: String? {
-//        return name
-//    }
-//    
-//    public var subTitle: String? {
-//        return phoneNumber
-//    }
-//}
 
 
 
