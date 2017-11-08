@@ -10,7 +10,7 @@ import CarpoolKit
 import CoreLocation
 import MapKit
 
-class CreateTripViewController: UIViewController, CLLocationManagerDelegate {
+class CreateTripViewController: UIViewController {
     
     @IBOutlet weak var nameOfEventTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -33,7 +33,32 @@ class CreateTripViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         datePicker.setDate(selectedDate, animated: true)
+        
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func search(for query: String) {
+        let searchRequest = MKLocalSearchRequest()
+        searchRequest.naturalLanguageQuery = query
+        
+        let search = MKLocalSearch(request: searchRequest)
+        search.start { (response, error) in
+            guard let response = response else { return }
+            print(response.mapItems)
+            
+            //self.mapView.addAnnotations(response.mapItems)
+            
+            //            for mapItem in response.mapItems{
+            //                self.mapView.addAnnotation(mapItem.placemark)
+            //            }
+        }
     }
     
     @IBAction func onDatePickerSelected(_ sender: UIDatePicker) {
@@ -41,6 +66,7 @@ class CreateTripViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func onClearPressed(_ sender: UIButton) {
+        
     }
     
     @IBAction func onSubmitPressed(_ sender: UIButton) {
@@ -48,6 +74,7 @@ class CreateTripViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func seeLocationOnAMapPressed(_ sender: UIButton) {
+        
     }
     
     func createTrip() {
@@ -57,4 +84,37 @@ class CreateTripViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let mapVC = segue.destination as? MapViewController {
+            
+        }
+        if let locationsTableVC = segue.destination as? LocationsTableViewController {
+            
+        }
+    }
 }
+
+extension CreateTripViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
+        mapView.setRegion(coordinateRegion, animated: true)
+        
+        if locationEnteredTextField.text != nil {
+            search(for: locationEnteredTextField.text!)
+        }
+    }
+}
+
+extension CreateTripViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        guard status == .authorizedWhenInUse else { return }
+        //mapView.showsUserLocation = true
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+}
+
+

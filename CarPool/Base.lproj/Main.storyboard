@@ -245,7 +245,6 @@
                         <outlet property="datePicker" destination="dXv-di-XNo" id="I71-qm-AWl"/>
                         <outlet property="locationEnteredTextField" destination="Dce-ce-yUN" id="Qad-Tu-tNp"/>
                         <outlet property="nameOfEventTextField" destination="wAi-ou-SCa" id="slQ-uS-80x"/>
-                        <outlet property="onClearPressed" destination="C9p-h5-Rod" id="hyo-tE-s3k"/>
                         <outlet property="seeLocationOnAMapButton" destination="E17-vd-fii" id="R5K-io-3jo"/>
                         <outlet property="submitButton" destination="cH2-96-9sb" id="vV5-Aa-Bt3"/>
                     </connections>
