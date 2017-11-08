@@ -178,11 +178,6 @@
                                     <action selector="onDatePickerSelected:" destination="tnw-54-FYd" eventType="valueChanged" id="ySU-Z0-SXg"/>
                                 </connections>
                             </datePicker>
-                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="Enter Location Here" translatesAutoresizingMaskIntoConstraints="NO" id="3ui-Le-7dw">
-                                <rect key="frame" x="8" y="386" width="359" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comments Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8UR-CM-wzo">
                                 <rect key="frame" x="8" y="110" width="359" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -227,8 +222,19 @@
                                 <state key="normal" title="See location on a map"/>
                                 <connections>
                                     <action selector="seeLocationOnAMapPressed:" destination="tnw-54-FYd" eventType="touchUpInside" id="Y8D-Mv-wFG"/>
+                                    <segue destination="oQ2-u8-HQ1" kind="show" id="xEo-1e-jsk"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter location here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dce-ce-yUN">
+                                <rect key="frame" x="16" y="407" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <segue destination="3go-m6-9Nl" kind="presentation" id="wbt-eh-03c"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -237,9 +243,9 @@
                         <outlet property="clearButton" destination="C9p-h5-Rod" id="lED-mu-lZD"/>
                         <outlet property="commentsTextField" destination="8UR-CM-wzo" id="4A4-Z2-Gns"/>
                         <outlet property="datePicker" destination="dXv-di-XNo" id="I71-qm-AWl"/>
+                        <outlet property="locationEnteredTextField" destination="Dce-ce-yUN" id="Qad-Tu-tNp"/>
                         <outlet property="nameOfEventTextField" destination="wAi-ou-SCa" id="slQ-uS-80x"/>
                         <outlet property="onClearPressed" destination="C9p-h5-Rod" id="hyo-tE-s3k"/>
-                        <outlet property="searchBarForLocation" destination="3ui-Le-7dw" id="4Zw-ob-8um"/>
                         <outlet property="seeLocationOnAMapButton" destination="E17-vd-fii" id="R5K-io-3jo"/>
                         <outlet property="submitButton" destination="cH2-96-9sb" id="vV5-Aa-Bt3"/>
                     </connections>
@@ -274,7 +280,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kRa-l9-71L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2687" y="32"/>
+            <point key="canvasLocation" x="2676" y="469"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="czM-js-Paw">
@@ -289,13 +295,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lbq-Py-Py2">
-                                <rect key="frame" x="0.0" y="158" width="375" height="439"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="545"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxk-m9-3nz">
-                                <rect key="frame" x="140" y="617" width="62" height="30"/>
+                                <rect key="frame" x="152" y="617" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Direction"/>
+                                <state key="normal" title="Directions"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
