@@ -10,21 +10,22 @@ import UIKit
 import MapKit
 
 class LocationsTableViewController: UITableViewController {
-    var location: [String] = []
+    var locations: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return location.count
+        return locations.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Locations", for: indexPath)
-        cell.textLabel?.text = location[indexPath.row]
+        cell.textLabel?.text = locations[indexPath.row]
         return cell
     }
+    
 }
 
 

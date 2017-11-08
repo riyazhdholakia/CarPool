@@ -70,7 +70,6 @@ extension MapViewController: CLLocationManagerDelegate {
     }
 }
 
-
 extension MKMapItem: MKAnnotation {
     public var coordinate: CLLocationCoordinate2D {
         return placemark.coordinate
@@ -80,9 +79,8 @@ extension MKMapItem: MKAnnotation {
         return name
     }
     
-    public var subtitle: String? {
+    public var subTitle: String? {
         return phoneNumber
     }
-
-    
 }
+
