@@ -2,21 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SchemeUserState</key>
-	<dict>
-		<key>CarPool.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>2F27217B1FB0E77800747B8E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+    <key>SchemeUserState</key>
+    <dict>
+        <key>CarPool.xcscheme</key>
+        <dict>
+            <key>orderHint</key>
+            <integer>7</integer>
+        </dict>
+    </dict>
+    <key>SuppressBuildableAutocreation</key>
+    <dict>
+        <key>2F27217B1FB0E77800747B8E</key>
+        <dict>
+            <key>primary</key>
+            <true/>
+        </dict>
+    </dict>
 </dict>
 </plist>
