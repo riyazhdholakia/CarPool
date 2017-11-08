@@ -46,9 +46,7 @@ class MapViewController: UIViewController {
             }
         }
     }
-    
-    
-    
+
 }
 
 
@@ -77,7 +75,6 @@ extension MKMapItem: MKAnnotation {
     public var coordinate: CLLocationCoordinate2D {
         return placemark.coordinate
     }
-    
     
     public var title: String?{
         return name
