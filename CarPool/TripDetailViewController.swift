@@ -36,6 +36,7 @@ class TripDetailViewController: UIViewController {
         //        dropOffDriverPhoneLabel.text = "Drop off driver phone#: " + "\(trip.dropOff?.driver?.phone)"
         //        pickUpDriverPhoneLabel.text = "Pick up driver phone#: " + "\(trip.dropOff?.driver?.phone)"
         dateForEventLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
+        
 //        if trip.dropOff?.isClaimed == false {
 //            claimDropoffButton.backgroundColor = UIColor.red
 //        }
@@ -53,7 +54,7 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         API.claimPickUp(trip: trip) { (error) in
-
+            print(error)
         }
     }
     
