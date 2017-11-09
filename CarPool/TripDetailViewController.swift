@@ -54,7 +54,7 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         API.claimPickUp(trip: trip) { (error) in
-            print(error) 
+            print(error)  
         }
     }
     

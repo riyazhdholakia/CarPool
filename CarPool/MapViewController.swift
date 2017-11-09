@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController,UISearchControllerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -30,6 +30,23 @@ class MapViewController: UIViewController {
         }
     }
     
+    @IBAction func onDirectionsPressed(_ sender: UIBarButtonItem) {
+        let latitude: CLLocationDegrees = 37.2
+        let longitude: CLLocationDegrees = 22.9
+        
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "Place Name"
+        mapItem.openInMaps(launchOptions: options)
+    }
+    
     func search(for query: String)  {
         let searchRequest = MKLocalSearchRequest()
         searchRequest.naturalLanguageQuery = query
@@ -45,11 +62,8 @@ class MapViewController: UIViewController {
                 //                }
             }
         }
-    }
-
+   }
 }
-
-
 extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)

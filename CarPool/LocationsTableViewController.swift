@@ -23,7 +23,7 @@ class LocationsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Locations", for: indexPath)
         cell.textLabel?.text = locations[indexPath.row]
-        return cell
+        return cell 
     }
     
 }
