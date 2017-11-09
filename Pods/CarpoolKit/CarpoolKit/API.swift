@@ -11,11 +11,21 @@ public enum API {
         case decode
         case legAndTripAreNotRelated
         case invalidJsonType
+        case emptyDescription
+
+        /// sign-up or sign-in failed
+        case signInFailed(underlyingError: Swift.Error)
     }
 
     static func auth() -> Promise<Void> {
+
+        func foo() -> Promise<FirebaseCommunity.User> {
+            if let foo = Auth.auth().currentUser { return Promise(value: foo) }
+            return PromiseKit.wrap(Auth.auth().signInAnonymously)
+        }
+
         return firstly {
-            PromiseKit.wrap(Auth.auth().signInAnonymously)
+            foo()
         }.then { fbuser in
             Database.fetch(path: "users/\(fbuser.uid)").then {
                 (fbuser.uid, $0.string(for: "name"))
@@ -26,6 +36,59 @@ public enum API {
                 "name": "Anonymous Parent",
                 "ctime": Date().timeIntervalSince1970
             ])
+        }
+    }
+
+    public static func signUp(email: String, password: String, completion: @escaping (Result<User>) -> Void) {
+        if let user = Auth.auth().currentUser {
+            link(user: user, email: email, password: password, completion: completion)
+        } else {
+            Auth.auth().createUser(withEmail: email, password: password) { user, error in
+                firstly {
+                    auth()
+                }.then {
+                    fetchCurrentUser()
+                }.then {
+                    completion(.success($0))
+                }.catch {
+                    completion(.failure($0))
+                }
+            }
+        }
+    }
+
+    private static func link(user: FirebaseCommunity.User, email: String, password: String, completion: @escaping (Result<User>) -> Void) {
+        let creds = EmailAuthProvider.credential(withEmail: email, password: password)
+        user.link(with: creds, completion: { user, error in
+            if user != nil {
+                fetchCurrentUser().then {
+                    completion(.success($0))
+                }.catch {
+                    completion(.failure($0))
+                }
+            } else if let error = error {
+                completion(.failure(Error.signInFailed(underlyingError: error)))
+            } else {
+                completion(.failure(Error.signInFailed(underlyingError: PMKError.invalidCallingConvention)))
+            }
+        })
+    }
+
+    public static func signIn(email: String, password: String, completion: @escaping (Result<User>) -> Void) {
+        if let user = Auth.auth().currentUser {
+            link(user: user, email: email, password: password, completion: completion)
+        } else {
+            Auth.auth().signIn(withEmail: email, password: password) { user, error in
+                firstly {
+                    auth()
+                    }.then {
+                        fetchCurrentUser()
+                    }.then {
+                        completion(.success($0))
+                    }.catch {
+                        completion(.failure($0))
+                }
+            }
         }
     }
 
@@ -63,7 +126,16 @@ public enum API {
                 guard let foo = snapshot.value as? [String: [String: Any]] else {
                     return completion(.failure(API.Error.noChildren))
                 }
-                when(fulfilled: foo.map{ Trip.make(key: $0, json: $1) }).join(joint)
+                firstly {
+                    when(resolved: foo.map{ Trip.make(key: $0, json: $1) })
+                }.then { results -> [Trip] in
+                    var trips: [Trip] = []
+                    for case .fulfilled(let trip) in results { trips.append(trip) }
+                    if trips.isEmpty && !results.isEmpty {
+                        throw Error.noChildren
+                    }
+                    return trips
+                }.join(joint)
             }
             return promise
         }.then {
@@ -75,6 +147,12 @@ public enum API {
 
     /// claims the initial leg by the current user, so pickUp leg is UNCLAIMED
     public static func createTrip(eventDescription desc: String, eventTime time: Date, eventLocation location: CLLocation?, completion: @escaping (Result<Trip>) -> Void) {
+        guard !desc.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return DispatchQueue.main.async {
+                completion(.failure(Error.emptyDescription))
+            }
+        }
+
         firstly {
             fetchCurrentUser()
         }.then { user -> Void in
@@ -184,13 +262,27 @@ public enum API {
         }
     }
 
-    public func addChild(name: String, parent user: User) {
-        let ref1 = Database.database().reference().child("children").childByAutoId()
-        ref1.setValue(["name": name])
-
-        Database.database().reference().child("users").child(user.key).child("children").updateChildValues([
-            ref1.key: name
-        ])
+    /// adds children to the logged in user
+    /// if a child already exists with that name, returns the existing child
+    public static func addChild(name: String, completion: @escaping (Result<Child>) -> Void) {
+        firstly {
+            fetchCurrentUser()
+        }.then { user -> Child in
+            if let child = user.children.first(where: { $0.name == name }) {
+                return child
+            } else {
+                let ref1 = Database.database().reference().child("children").childByAutoId()
+                ref1.setValue(["name": name])
+                Database.database().reference().child("users").child(user.key).child("children").updateChildValues([
+                    ref1.key: name
+                ])
+                return Child(key: ref1.key, name: name)
+            }
+        }.then {
+            completion(.success($0))
+        }.catch {
+            completion(.failure($0))
+        }
     }
 }
 

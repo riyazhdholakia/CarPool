@@ -386,13 +386,16 @@
                                 <rect key="frame" x="164" y="289" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginSignupPressed:" destination="D7F-if-oBU" eventType="touchUpInside" id="4Y7-4y-nBj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="qO6-NM-Der" id="MxU-t2-84m"/>
-                        <outlet property="loginSignupButton" destination="WUV-7k-atn" id="o3k-h8-E32"/>
+                        <outlet property="loginSignupButton" destination="H3E-Ea-pNh" id="R7b-3x-wLD"/>
                         <outlet property="passwordTextField" destination="Ojt-J7-Fg4" id="1YS-Yb-hye"/>
                         <outlet property="segmentedControlLoginSignup" destination="3n0-EZ-fzu" id="DPW-S9-aNI"/>
                     </connections>
