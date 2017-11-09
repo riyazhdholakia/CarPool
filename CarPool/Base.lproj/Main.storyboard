@@ -18,24 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="6e8-fD-mXl">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y57-RA-c04">
-                                    <rect key="frame" x="150" y="6" width="76" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Create Trip"/>
-                                    <connections>
-                                        <segue destination="tnw-54-FYd" kind="show" id="rZd-UY-ZtU"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RootVCEvents" id="HT1-eS-Rqh">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HT1-eS-Rqh" id="fef-WL-fM5">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -52,7 +37,13 @@
                             <outlet property="delegate" destination="NtH-Ea-0g6" id="N3W-4Z-Wj9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tMS-cw-Xc4"/>
+                    <navigationItem key="navigationItem" id="tMS-cw-Xc4">
+                        <barButtonItem key="rightBarButtonItem" title="Create Trip" id="PWS-ye-pZ7">
+                            <connections>
+                                <segue destination="tnw-54-FYd" kind="show" id="zkb-vi-Zd2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H18-a2-rUW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
