@@ -9,10 +9,9 @@
 import UIKit
 import CarpoolKit
 
-
 let logMeinNotification = Notification.Name("LogMeInDidCompleteNotification")
 
-class RootTabBarController: UITableViewController {
+class RootNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(forName: logMeinNotification, object: nil, queue: .main) { (_) in
@@ -21,23 +20,21 @@ class RootTabBarController: UITableViewController {
             }
         }
     }
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-////        if Auth.auth().currentUser == nil {
-//            let loginVC = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
-//            self.present(loginVC, animated: animated, completion: nil)
-//        }
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let loginVC = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
+        self.present(loginVC, animated: animated, completion: nil)
+    }
     
 }
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
 

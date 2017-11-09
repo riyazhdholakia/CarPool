@@ -46,7 +46,7 @@ class TripDetailViewController: UIViewController {
     }
     
     @IBAction func onPickupClaimPressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Alert", message: "My Alert for test", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Alert", message: "Do you want to pickup?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
             self.claimPickupButton.backgroundColor = UIColor.white
             print("you have pressed the ok button")
@@ -54,12 +54,12 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         API.claimPickUp(trip: trip) { (error) in
-            print(error)  
+            print(error)
         }
     }
     
     @IBAction func onDropoffClaimPressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Alert", message: "My Alert for test", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Alert", message: "Do you want to dropoff?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
             self.claimDropoffButton.backgroundColor = UIColor.white
             print("you have pressed the ok button")
