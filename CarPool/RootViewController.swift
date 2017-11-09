@@ -33,14 +33,18 @@ class RootViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RootVCEvents", for: indexPath)
-        cell.textLabel?.text = trips[indexPath.row].event.description
+        if trips[indexPath.row].event.description == "" {
+            cell.textLabel?.text = "* no event description *"
+        } else {
+            cell.textLabel?.text = trips[indexPath.row].event.description
+        }
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let eventDetailVC = segue.destination as? TripDetailViewController {
+        if let tripDetailVC = segue.destination as? TripDetailViewController {
             let indexPath = tableView.indexPathForSelectedRow
-            eventDetailVC.trip = trips[(indexPath?.row)!]
+            tripDetailVC.trip = trips[(indexPath?.row)!]
         }
     }
     

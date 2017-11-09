@@ -23,7 +23,8 @@ class CreateTripViewController: UIViewController {
     let locationManager = CLLocationManager()
     var locationOfEvent = ""
     var selectedDate = Date()
-    var locationsOfEnteredInTextField: [String] = []
+    var mapItems: [MKMapItem] = []
+    var locationSelected: [MKMapItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +59,8 @@ class CreateTripViewController: UIViewController {
         search.start { (response, error) in
             guard let response = response else { return }
             print(response.mapItems)
-            //todo take response.mapItems and "save" it to locationsOfEnteredInTextField
+            self.mapItems = response.mapItems
+            self.performSegue(withIdentifier: "SegueToLocationsTableVC", sender: self)
             
            // self.locationsOfEnteredInTextField.addAnnotations(response.mapItems)
             
@@ -94,15 +96,15 @@ class CreateTripViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let mapVC = segue.destination as? MapViewController {
-            
         }
         if let locationsTableVC = segue.destination as? LocationsTableViewController {
-            locationsTableVC.locations = locationsOfEnteredInTextField
+            locationsTableVC.mapItems = mapItems
         }
     }
     
     @IBAction func unwindFromLocationsTableVC(segue: UIStoryboardSegue) {
-        
+        let selectedMapItem = (segue.source as! LocationsTableViewController).selectedMapItem
+        locationEnteredTextField.text = selectedMapItem?.name
     }
     
 }
