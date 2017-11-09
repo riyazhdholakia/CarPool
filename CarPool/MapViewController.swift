@@ -32,11 +32,11 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
     }
     
     @IBAction func onDirectionsPressed(_ sender: UIBarButtonItem) {
-//        let latitude: CLLocationDegrees = 37.2
-//        let longitude: CLLocationDegrees = 22.9
+        //        let latitude: CLLocationDegrees = 37.2
+        //        let longitude: CLLocationDegrees = 22.9
         
-        var longitude = selectedMapItem?.placemark.coordinate.longitude
-        var latitude = selectedMapItem?.placemark.coordinate.latitude
+        let longitude = selectedMapItem?.placemark.coordinate.longitude
+        let latitude = selectedMapItem?.placemark.coordinate.latitude
         
         let regionDistance: CLLocationDistance = 10000
         let coordinates = CLLocationCoordinate2DMake(latitude!, longitude!)
@@ -51,33 +51,19 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
         mapItem.openInMaps(launchOptions: options)
     }
     
-    func annonation() {
-        self.mapView.addAnnotation(selectedMapItem!)
+    func search() {
+        self.mapView.addAnnotation((self.selectedMapItem?.placemark)!)
     }
-    
-//    func search(for query: String)  {
-//        let searchRequest = MKLocalSearchRequest()
-//        searchRequest.naturalLanguageQuery = query
-//
-//        let search = MKLocalSearch(request: searchRequest)
-//        search.start { (response, error) in
-//            if let response = response {
-//                //                print(response.mapItems)
-//                self.mapView.addAnnotations(response.mapItems)
-//                //                for mapItem in response.mapItems{
-//                //                    print(mapItem.placemark.title,mapItem.placemark.subtitle)
-//                //                    self.mapView.addAnnotation(mapItem.placemark)
-//                //                }
-//            }
-//        }
-//   }
 }
+
 extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
         mapView.setRegion(coordinateRegion, animated: true)
+        var region = MKCoordinateRegion(center: (selectedMapItem?.coordinate)! , span: coordinateRegion.span)
+        mapView.setRegion(region, animated: true)
         
-        annonation()
+        search()
     }
 }
 

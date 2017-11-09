@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CarpoolKit
+
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var segmentedControlLoginSignup: UISegmentedControl!
