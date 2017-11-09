@@ -14,6 +14,7 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
+    var selectedMapItem: MKMapItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +32,14 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
     }
     
     @IBAction func onDirectionsPressed(_ sender: UIBarButtonItem) {
-        let latitude: CLLocationDegrees = 37.2
-        let longitude: CLLocationDegrees = 22.9
+//        let latitude: CLLocationDegrees = 37.2
+//        let longitude: CLLocationDegrees = 22.9
         
-        let regionDistance:CLLocationDistance = 10000
-        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        var longitude = selectedMapItem?.placemark.coordinate.longitude
+        var latitude = selectedMapItem?.placemark.coordinate.latitude
+        
+        let regionDistance: CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude!, longitude!)
         let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
         let options = [
             MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
@@ -47,29 +51,33 @@ class MapViewController: UIViewController,UISearchControllerDelegate {
         mapItem.openInMaps(launchOptions: options)
     }
     
-    func search(for query: String)  {
-        let searchRequest = MKLocalSearchRequest()
-        searchRequest.naturalLanguageQuery = query
-        
-        let search = MKLocalSearch(request: searchRequest)
-        search.start { (response, error) in
-            if let response = response {
-                //                print(response.mapItems)
-                self.mapView.addAnnotations(response.mapItems)
-                //                for mapItem in response.mapItems{
-                //                    print(mapItem.placemark.title,mapItem.placemark.subtitle)
-                //                    self.mapView.addAnnotation(mapItem.placemark)
-                //                }
-            }
-        }
-   }
+    func annonation() {
+        self.mapView.addAnnotation(selectedMapItem!)
+    }
+    
+//    func search(for query: String)  {
+//        let searchRequest = MKLocalSearchRequest()
+//        searchRequest.naturalLanguageQuery = query
+//
+//        let search = MKLocalSearch(request: searchRequest)
+//        search.start { (response, error) in
+//            if let response = response {
+//                //                print(response.mapItems)
+//                self.mapView.addAnnotations(response.mapItems)
+//                //                for mapItem in response.mapItems{
+//                //                    print(mapItem.placemark.title,mapItem.placemark.subtitle)
+//                //                    self.mapView.addAnnotation(mapItem.placemark)
+//                //                }
+//            }
+//        }
+//   }
 }
 extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
         mapView.setRegion(coordinateRegion, animated: true)
         
-        search(for: "pizza")
+        annonation()
     }
 }
 

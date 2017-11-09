@@ -25,6 +25,7 @@ class CreateTripViewController: UIViewController {
     var selectedDate = Date()
     var mapItems: [MKMapItem] = []
     var locationSelected: [MKMapItem] = []
+    var selectedMapItem: MKMapItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,6 +97,7 @@ class CreateTripViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let mapVC = segue.destination as? MapViewController {
+            mapVC.selectedMapItem = selectedMapItem
         }
         if let locationsTableVC = segue.destination as? LocationsTableViewController {
             locationsTableVC.mapItems = mapItems
@@ -103,7 +105,7 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func unwindFromLocationsTableVC(segue: UIStoryboardSegue) {
-        let selectedMapItem = (segue.source as! LocationsTableViewController).selectedMapItem
+        selectedMapItem = (segue.source as! LocationsTableViewController).selectedMapItem
         locationEnteredTextField.text = selectedMapItem?.name
     }
     
