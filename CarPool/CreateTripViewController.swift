@@ -127,6 +127,16 @@ extension CreateTripViewController: CLLocationManagerDelegate {
     }
 }
 
-
-
-
+//extension MKMapItem: MKAnnotation {
+//    public var coordinate: CLLocationCoordinate2D {
+//        return placemark.coordinate
+//    }
+//    
+//    public var title: String? {
+//        return name
+//    }
+//    
+//    public var subTitle: String? {
+//        return phoneNumber
+//    }
+//}
