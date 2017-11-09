@@ -86,7 +86,6 @@
 				ABCADDAC1FB390BE00DA2699 /* MapViewController.swift */,
 				ABCADDAA1FB36AEF00DA2699 /* LocationsTableViewController.swift */,
 				2F0841271FB0FFAC00EFDB65 /* CreateTripViewController.swift */,
-				AB01E4201FB3ADBC0096792E /* Savannah.gpx */,
 				2F2721861FB0E77800747B8E /* Assets.xcassets */,
 				2F2721881FB0E77800747B8E /* LaunchScreen.storyboard */,
 				2F27218B1FB0E77800747B8E /* Info.plist */,
@@ -177,7 +176,6 @@
 				2F27218A1FB0E77800747B8E /* LaunchScreen.storyboard in Resources */,
 				ABCE17441FB24FBC002C4044 /* GoogleService-Info.plist in Resources */,
 				2F2721871FB0E77800747B8E /* Assets.xcassets in Resources */,
-				AB01E4211FB3ADBC0096792E /* Savannah.gpx in Resources */,
 				2F2721851FB0E77800747B8E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
