@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Savannah.gpx">
+   </FileRef>
+   <FileRef
       location = "group:CarPool.xcodeproj">
    </FileRef>
    <FileRef
