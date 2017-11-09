@@ -126,6 +126,7 @@
                             <constraint firstItem="GVH-OH-vBA" firstAttribute="top" secondItem="dzE-zD-McB" secondAttribute="bottom" constant="24" id="omd-Xz-oJS"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="A1R-sq-tzU"/>
                     <connections>
                         <outlet property="claimDropoffButton" destination="g2g-yp-nIB" id="WuU-No-5SS"/>
                         <outlet property="claimPickupButton" destination="scC-FN-NNn" id="Oae-TR-ayk"/>
