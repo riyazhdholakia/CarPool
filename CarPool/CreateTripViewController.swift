@@ -84,7 +84,8 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func seeLocationOnAMapPressed(_ sender: UIButton) {
-        
+        let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapVC") as! MapViewController
+        mapVC.selectedMapItem = selectedMapItem
     }
     
     func createTrip() {
@@ -96,11 +97,11 @@ class CreateTripViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let mapVC = segue.destination as? MapViewController {
-            mapVC.selectedMapItem = selectedMapItem
-        }
         if let locationsTableVC = segue.destination as? LocationsTableViewController {
             locationsTableVC.mapItems = mapItems
+        }
+        if let mapVC = segue.destination as? MapViewController {
+            mapVC.selectedMapItem = selectedMapItem
         }
     }
     
@@ -128,17 +129,3 @@ extension CreateTripViewController: CLLocationManagerDelegate {
         print(error)
     }
 }
-
-//extension MKMapItem: MKAnnotation {
-//    public var coordinate: CLLocationCoordinate2D {
-//        return placemark.coordinate
-//    }
-//    
-//    public var title: String? {
-//        return name
-//    }
-//    
-//    public var subTitle: String? {
-//        return phoneNumber
-//    }
-//}
