@@ -26,7 +26,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         //confirmPasswordTextField.isHidden = true
-        
     }
     
     @IBAction func onSegmentedControlLoginSignupPressed(_ sender: UISegmentedControl) {
@@ -51,15 +50,10 @@ class LoginViewController: UIViewController {
             }
         } else if segmentedControlLoginSignup.selectedSegmentIndex == 1 {
             if passwordTextField.text! == confirmPasswordTextField.text {
-                API.signUp(email: emailTextField.text!, password: passwordTextField.text!, completion: { (result) in
+                API.signUp(email: emailTextField.text!, password: passwordTextField.text!, completion: { (result) in 
                     NotificationCenter.default.post(name: logMeinNotification, object: nil)
                 })
             }
         }
     }
 }
-
-
-
-
-

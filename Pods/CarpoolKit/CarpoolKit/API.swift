@@ -12,6 +12,10 @@ public enum API {
         case legAndTripAreNotRelated
         case invalidJsonType
         case emptyDescription
+        case notAString
+        case notYourTripToDelete
+        case anonymousUsersCannotCreateTrips
+        case deprecated
 
         /// sign-up or sign-in failed
         case signInFailed(underlyingError: Swift.Error)
@@ -27,32 +31,35 @@ public enum API {
         return firstly {
             foo()
         }.then { fbuser in
-            Database.fetch(path: "users/\(fbuser.uid)").then {
+            Database.fetch(path: "users", fbuser.uid).then {
                 (fbuser.uid, $0.string(for: "name"))
             }
         }.then { uid, name -> Void in
             if name != nil { return }
             Database.database().reference().child("users").child(uid).setValue([
-                "name": "Anonymous Parent",
                 "ctime": Date().timeIntervalSince1970
             ])
         }
     }
 
-    public static func signUp(email: String, password: String, completion: @escaping (Result<User>) -> Void) {
+    public static func signUp(email: String, password: String, fullName: String, completion: @escaping (Result<User>) -> Void) {
         if let user = Auth.auth().currentUser {
             link(user: user, email: email, password: password, completion: completion)
         } else {
-            Auth.auth().createUser(withEmail: email, password: password) { user, error in
-                firstly {
-                    auth()
-                }.then {
-                    fetchCurrentUser()
-                }.then {
-                    completion(.success($0))
-                }.catch {
-                    completion(.failure($0))
+            firstly {
+                PromiseKit.wrap{ Auth.auth().createUser(withEmail: email, password: password, completion: $0) }
+            }.then { user in
+                auth().then {
+                    Database.database().reference().child("users").child(user.uid).updateChildValues([
+                        "name": fullName
+                    ])
                 }
+            }.then {
+                fetchCurrentUser()
+            }.then {
+                completion(.success($0))
+            }.catch {
+                completion(.failure($0))
             }
         }
     }
@@ -78,70 +85,68 @@ public enum API {
         if let user = Auth.auth().currentUser {
             link(user: user, email: email, password: password, completion: completion)
         } else {
-            Auth.auth().signIn(withEmail: email, password: password) { user, error in
-                firstly {
-                    auth()
-                    }.then {
-                        fetchCurrentUser()
-                    }.then {
-                        completion(.success($0))
-                    }.catch {
-                        completion(.failure($0))
-                }
+            firstly {
+                PromiseKit.wrap{ Auth.auth().signIn(withEmail: email, password: password, completion: $0) }
+            }.then { _ in
+                auth()
+            }.then {
+                fetchCurrentUser()
+            }.then {
+                completion(.success($0))
+            }.catch {
+                completion(.failure($0))
             }
         }
     }
 
     /// returns the current list of trips, once
     public static func fetchTripsOnce(completion: @escaping (Result<[Trip]>) -> Void) {
-        firstly {
-            auth()
-        }.then {
-            Database.fetch(path: "trips")
-        }.then { bar -> [String: [String: Any]] in
-            guard let foo = bar.value as? [String: [String: Any]] else { throw API.Error.decode }
-            return foo
-        }.then {
-            when(resolved: $0.map{ Trip.make(key: $0, json: $1) })
-        }.then { results -> Void in
-            var trips: [Trip] = []
-            for case .fulfilled(let trip) in results { trips.append(trip) }
-
-            if trips.isEmpty && !results.isEmpty {
-                throw Error.noChildren
-            }
-
-            completion(.success(trips))
-        }.catch {
-            completion(.failure($0))
+        DispatchQueue.main.async {
+            completion(.failure(Error.deprecated))
         }
     }
 
+    /// returns all trips, continuously
     public static func observeTrips(completion: @escaping (Result<[Trip]>) -> Void) {
         firstly {
             auth()
         }.then {
-            let (promise, joint) = Promise<[Trip]>.joint()
             Database.database().reference().child("trips").observe(.value) { snapshot in
                 guard let foo = snapshot.value as? [String: [String: Any]] else {
                     return completion(.failure(API.Error.noChildren))
                 }
                 firstly {
                     when(resolved: foo.map{ Trip.make(key: $0, json: $1) })
-                }.then { results -> [Trip] in
+                }.then { results -> Void in
                     var trips: [Trip] = []
                     for case .fulfilled(let trip) in results { trips.append(trip) }
                     if trips.isEmpty && !results.isEmpty {
                         throw Error.noChildren
                     }
-                    return trips
-                }.join(joint)
+                    trips.sort()
+                    completion(.success(trips))
+                }.catch {
+                    completion(.failure($0))
+                }
             }
-            return promise
-        }.then {
-            completion(.success($0))
         }.catch {
             completion(.failure($0))
+        }
+    }
+
+    /// returns all the current user's trips, continuously
+    public static func observeMyTrips(completion: @escaping (Result<[Trip]>) -> Void) {
+        observeTrips { result in
+            switch result {
+            case .success(let trips):
+                fetchCurrentUser().then { user in
+                    completion(.success(trips.filter{ $0.event.owner == user }))
+                }.catch {
+                    completion(.failure($0))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 
@@ -156,8 +161,11 @@ public enum API {
         firstly {
             fetchCurrentUser()
         }.then { user -> Void in
-            guard let uid = Auth.auth().currentUser?.uid else {
+            guard let fbuser = Auth.auth().currentUser else {
                 throw Error.notAuthorized
+            }
+            guard user.name?.chuzzled() != nil, user.name != "Anonymous Parent" else {
+                throw Error.anonymousUsersCannotCreateTrips
             }
 
             let geohash = location.flatMap{ Geohash(location: $0) }?.value
@@ -165,20 +173,23 @@ public enum API {
             var eventDict: [String: Any] = [
                 "description": desc,
                 "time": time.timeIntervalSince1970,
-                "owner": [uid: user.name]
+                "owner": [fbuser.uid: user.name!]
             ]
             eventDict["geohash"] = geohash
             let eventRef = Database.database().reference().child("events").childByAutoId()
-            eventRef.setValue(eventDict)
 
             let tripRef = Database.database().reference().child("trips").childByAutoId()
             tripRef.setValue([
-                "dropOff": [uid: user.name ?? "Anonymous Parent"],
+                "dropOff": [fbuser.uid: user.name!],
                 "event": [eventRef.key: eventDict],
-                "owner": uid
+                "owner": [fbuser.uid: user.name!]
             ])
 
-            let event = Event(key: eventRef.key, description: desc, owner: user, time: time, location: geohash)
+            var eventDict2 = eventDict
+            eventDict2["trips"] = [tripRef.key: true]
+            eventRef.setValue(eventDict2)
+
+            let event = Event(key: eventRef.key, description: desc, owner: user, time: time, endTime: nil, location: geohash)
             let trip = Trip(key: tripRef.key, event: event, dropOff: Leg(driver: user), pickUp: nil, _children: [])
             completion(.success(trip))
         }.catch {
@@ -192,7 +203,15 @@ public enum API {
         ])
     }
 
-    static func fetchCurrentUser() -> Promise<User> {
+    public static func fetchCurrentUser(completion: @escaping (Result<User>) -> Void) {
+        fetchCurrentUser().then {
+            completion(.success($0))
+        }.catch {
+            completion(.failure($0))
+        }
+    }
+
+    public static func fetchCurrentUser() -> Promise<User> {
         return firstly {
             auth()
         }.then { () -> Promise<User> in
@@ -217,14 +236,20 @@ public enum API {
             auth()
         }.then {
             Database.fetch(path: "users", uid)
-        }.then { snap -> User in
+        }.then { snap -> Promise<User> in
             let name = (try? snap.childSnapshot(forPath: "name").string()) ?? "Anonymous Parent"
-            let kids: [Child] = try snap.childSnapshot(forPath: "children").array()
-            return User(key: uid, name: name, _children: kids)
+
+            return when(fulfilled: snap.childSnapshot(forPath: "children").keys.map { key in
+                Database.fetch(path: "children", key).then {
+                    try $0.value(key: key) as Child
+                }
+            }).then {
+                User(key: uid, name: name, _children: $0)
+            }
         }
     }
 
-    public static func fetchUser(id uid: String, completion: @escaping (Result<User>) -> Void) {
+    static func fetchUser(id uid: String, completion: @escaping (Result<User>) -> Void) {
         firstly {
             fetchUser(id: uid)
         }.then {
@@ -236,30 +261,52 @@ public enum API {
 
     /// if there is no error, completes with nil
     public static func claimPickUp(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
-        claim("pickUp", trip: trip, completion: completion)
+        claim("pickUp", claim: true, trip: trip, completion: completion)
     }
 
     /// if there is no error, completes with nil
     public static func claimDropOff(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
-        claim("dropOff", trip: trip, completion: completion)
+        claim("dropOff", claim: true, trip: trip, completion: completion)
     }
 
-    static func claim(_ key: String, trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+    /// if there is no error, completes with nil
+    public static func unclaimPickUp(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+        claim("pickUp", claim: false, trip: trip, completion: completion)
+    }
+
+    /// if there is no error, completes with nil
+    public static func unclaimDropOff(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+        claim("dropOff", claim: false, trip: trip, completion: completion)
+    }
+
+    static func claim(_ key: String, claim: Bool, trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
         firstly {
-            auth()
-        }.then { _ -> Promise<User> in
-            guard let uid = Auth.auth().currentUser?.uid else {
-                throw Error.notAuthorized
-            }
-            return API.fetchUser(id: uid)
+            fetchCurrentUser()
         }.then { user -> Void in
-            Database.database().reference().child("trips").child(trip.key).updateChildValues([
-                key: [user.key: user.name ?? "Anonymous Parent"]
-            ])
+            let ref = Database.database().reference().child("trips").child(trip.key).child(key)
+            if claim {
+                ref.updateChildValues([
+                    user.key: user.name ?? "Anonymous Parent"
+                ])
+            } else {
+                ref.removeValue()
+            }
             completion(nil)
         }.catch {
             completion($0)
         }
+    }
+
+    public var isCurrentUserAnonymous: Bool {
+        return Auth.auth().currentUser?.isAnonymous ?? true
+    }
+
+    public static func delete(trip: Trip) throws {
+        //TODO
+        guard trip.event.owner.key == Auth.auth().currentUser?.uid else {
+            throw Error.notYourTripToDelete
+        }
+        Database.database().reference().child("trips").child(trip.key).removeValue()
     }
 
     /// adds children to the logged in user
@@ -284,60 +331,28 @@ public enum API {
             completion(.failure($0))
         }
     }
-}
 
-public enum Result<T> {
-    case success(T)
-    case failure(Swift.Error)
-}
+    public static func set(userFullName: String) {
+        guard let user = Auth.auth().currentUser else { return }
 
-extension DataSnapshot {
-    func value<T: Decodable & Keyed>(key: String) throws -> T {
-        guard let value = self.value else { throw API.Error.noChild }
-        try checkIsValidJsonType(value)
-        let data = try JSONSerialization.data(withJSONObject: value)
-        var foo: T = try JSONDecoder().decode(T.self, from: data)
-        foo.key = key
-        return foo
+        let rq = user.createProfileChangeRequest()
+        rq.displayName = userFullName
+        rq.commitChanges(completion: nil)
+
+        Database.database().reference().child("users").child(user.uid).child("name").setValue(userFullName)
     }
 
-    func array<T: Decodable & Keyed>() throws -> [T] {
-        guard let rawValues = self.value else { return [] }  // nothing there yet, which means empty array
-        if rawValues is NSNull { return [] }  // nothing there yet, which means empty array
-        guard let values = rawValues as? [String: Any] else { throw API.Error.noChildren }
+    public static func set(endTime: Date, for event: Event) {
+        let endTime = endTime.timeIntervalSince1970
+        Database.database().reference().child("events").child(event.key).child("endTime").setValue(endTime)
 
-        return try values.map {
-            try checkIsValidJsonType($0.value)
-            let data = try JSONSerialization.data(withJSONObject: $0.value)
-            var foo: T = try JSONDecoder().decode(T.self, from: data)
-            foo.key = $0.key
-            return foo
-        }
-    }
-
-    func string() throws -> String {
-        guard let string = value as? String else { throw API.Error.invalidJsonType }
-        return string
-    }
-
-    func string(for key: String) -> String? {
-        guard let values = self.value as? [String: Any] else { return nil }
-        return values[key] as? String
-    }
-}
-
-extension Database {
-    static func fetch(path keys: String...) -> Promise<DataSnapshot> {
-        return Promise<DataSnapshot> { fulfill, reject in
-            var ref = database().reference()
-            for key in keys { ref = ref.child(key) }
-            ref.observeSingleEvent(of: .value) { snapshot in
-                fulfill(snapshot)
+        firstly {
+            Database.fetch(path: "events", event.key, "trips")
+        }.then { snapshot -> Void in
+            let ref = Database.database().reference().child("trips")
+            for key in snapshot.keys {
+                ref.child(key).child("event").child("endTime").setValue(endTime)
             }
         }
     }
-}
-
-protocol Keyed {
-    var key: String! { get set }
 }
