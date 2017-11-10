@@ -219,7 +219,6 @@
                 <searchDisplayController id="KbI-wE-zFC">
                     <connections>
                         <outlet property="delegate" destination="NtH-Ea-0g6" id="LFO-pe-znz"/>
-                        <outlet property="searchBar" destination="68K-hm-3jm" id="j5x-M6-XZb"/>
                         <outlet property="searchContentsController" destination="NtH-Ea-0g6" id="9ji-3r-CLK"/>
                         <outlet property="searchResultsDataSource" destination="NtH-Ea-0g6" id="yCX-o3-diw"/>
                         <outlet property="searchResultsDelegate" destination="NtH-Ea-0g6" id="NJq-wK-tCr"/>
