@@ -84,5 +84,7 @@ class RootViewController: UITableViewController {
         }
     }
     
+    @IBAction func unwindFromCreateTripVC(segue: UIStoryboardSegue) {
+    }
 }
 
