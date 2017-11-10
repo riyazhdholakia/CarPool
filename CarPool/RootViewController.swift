@@ -10,7 +10,6 @@ import UIKit
 import CarpoolKit
 
 class RootViewController: UITableViewController {
-
     var trips: [Trip] = []
     
     override func viewDidLoad() {

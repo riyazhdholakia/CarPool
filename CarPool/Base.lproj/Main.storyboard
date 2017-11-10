@@ -48,6 +48,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="tMS-cw-Xc4">
+                        <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" title="Create Trip" id="PWS-ye-pZ7">
                             <connections>
                                 <segue destination="tnw-54-FYd" kind="show" id="zkb-vi-Zd2"/>
