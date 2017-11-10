@@ -37,6 +37,7 @@ class RootViewController: UITableViewController {
             cell.textLabel?.text = "* no event description *"
         } else {
             cell.textLabel?.text = trips[indexPath.row].event.description
+            print("I worked")
         }
         return cell
     }
