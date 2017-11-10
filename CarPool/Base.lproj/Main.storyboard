@@ -469,6 +469,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="confirmPasswordTextField" destination="WUV-7k-atn" id="SGf-0d-5o7"/>
                         <outlet property="emailTextField" destination="qO6-NM-Der" id="MxU-t2-84m"/>
                         <outlet property="fullNameTextField" destination="F2E-lC-bbt" id="vGb-l6-XwX"/>
                         <outlet property="loginSignupButton" destination="H3E-Ea-pNh" id="R7b-3x-wLD"/>

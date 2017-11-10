@@ -16,6 +16,7 @@ public enum API {
         case notYourTripToDelete
         case anonymousUsersCannotCreateTrips
         case deprecated
+        case noChildName
 
         /// sign-up or sign-in failed
         case signInFailed(underlyingError: Swift.Error)
@@ -312,6 +313,13 @@ public enum API {
     /// adds children to the logged in user
     /// if a child already exists with that name, returns the existing child
     public static func addChild(name: String, completion: @escaping (Result<Child>) -> Void) {
+
+        guard name.chuzzled() != nil else {
+            return DispatchQueue.main.async {
+                completion(.failure(Error.noChildName))
+            }
+        }
+
         firstly {
             fetchCurrentUser()
         }.then { user -> Child in

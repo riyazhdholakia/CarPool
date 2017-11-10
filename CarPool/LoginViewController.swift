@@ -12,29 +12,28 @@ import CarpoolKit
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var segmentedControlLoginSignup: UISegmentedControl!
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var fullNameTextField: UITextField!
-    
     @IBOutlet weak var confirmPasswordTextField: UITextField!
-    
     @IBOutlet weak var loginSignupButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //confirmPasswordTextField.isHidden = true
+        confirmPasswordTextField.isHidden = true
+        fullNameTextField.isHidden = true
     }
     
     @IBAction func onSegmentedControlLoginSignupPressed(_ sender: UISegmentedControl) {
         switch segmentedControlLoginSignup.selectedSegmentIndex {
         case 0:
             confirmPasswordTextField.isHidden = true
+            fullNameTextField.isHidden = true
             loginSignupButton.setTitle("Login", for: .normal)
         case 1:
             confirmPasswordTextField.isHidden = false
+            fullNameTextField.isHidden = false
             loginSignupButton.setTitle("Signup", for: .normal)
         default:
             break

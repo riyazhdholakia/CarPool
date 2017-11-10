@@ -20,13 +20,13 @@ class RootNavigationController: UINavigationController {
             }
         }
     }
-  //  override func viewDidAppear(_ animated: Bool) {
-    //    super.viewDidAppear(animated)
-//        
-//        let loginVC = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") 
-//        self.present(loginVC, animated: animated, completion: nil)
-//    }
-//    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let loginVC = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
+        self.present(loginVC, animated: animated, completion: nil)
+    }
+    
 }
 
 
