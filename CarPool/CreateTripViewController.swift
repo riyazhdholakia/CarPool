@@ -15,9 +15,10 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var commentsTextField: UITextField!
     @IBOutlet weak var seeLocationOnAMapButton: UIButton!
-    @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var locationEnteredTextField: UITextField!
+    @IBOutlet weak var dropoffOrPickupSegmentedControll: UISegmentedControl!
+    
     
     let location = CLLocation()
     let locationManager = CLLocationManager()
@@ -26,6 +27,7 @@ class CreateTripViewController: UIViewController {
     var mapItems: [MKMapItem] = []
     var locationSelected: [MKMapItem] = []
     var selectedMapItem: MKMapItem?
+    var tripSelected: Trip!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,21 +64,11 @@ class CreateTripViewController: UIViewController {
             print(response.mapItems)
             self.mapItems = response.mapItems
             self.performSegue(withIdentifier: "SegueToLocationsTableVC", sender: self)
-            
-           // self.locationsOfEnteredInTextField.addAnnotations(response.mapItems)
-            
-            //            for mapItem in response.mapItems{
-            //                self.mapView.addAnnotation(mapItem.placemark)
-            //            }
         }
     }
     
     @IBAction func onDatePickerSelected(_ sender: UIDatePicker) {
         selectedDate = sender.date
-    }
-    
-    @IBAction func onClearPressed(_ sender: UIButton) {
-        
     }
     
     @IBAction func onSubmitPressed(_ sender: UIButton) {
@@ -92,6 +84,15 @@ class CreateTripViewController: UIViewController {
         if nameOfEventTextField.text != nil {
             API.createTrip(eventDescription: nameOfEventTextField.text!, eventTime: datePicker.date, eventLocation: location) { (trip) in
                 print(trip)
+//                if self.dropoffOrPickupSegmentedControll.selectedSegmentIndex == 0 {
+//                    API.claimDropOff(trip: self.tripSelected, completion: { (error) in
+//                        print(error!)
+//                    })
+//                } else if self.dropoffOrPickupSegmentedControll.selectedSegmentIndex == 1 {
+//                    API.claimPickUp(trip: self.tripSelected, completion: { (error) in
+//                        print(error!)
+//                    })
+//                }
             }
         }
     }
