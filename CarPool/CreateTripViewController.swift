@@ -13,7 +13,7 @@ class CreateTripViewController: UIViewController {
     
     @IBOutlet weak var nameOfEventTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var commentsTextField: UITextField!
+    @IBOutlet weak var childrenTextField: UITextField!
     @IBOutlet weak var seeLocationOnAMapButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var locationEnteredTextField: UITextField!
@@ -79,6 +79,9 @@ class CreateTripViewController: UIViewController {
     
     func createTrip() {
         if nameOfEventTextField.text != nil {
+            API.addChild(name: childrenTextField.text!, completion: { (result) in
+                print(result)
+            })
             API.createTrip(eventDescription: nameOfEventTextField.text!, eventTime: datePicker.date, eventLocation: location) { (trip) in
                 print(trip)
 //                if self.dropoffOrPickupSegmentedControll.selectedSegmentIndex == 0 {

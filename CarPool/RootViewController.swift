@@ -86,8 +86,6 @@ class RootViewController: UITableViewController {
         }
     }
     
-    
-    
     @IBAction func unwindFromCreateTripVC(segue: UIStoryboardSegue) {
     }
 }
@@ -97,7 +95,6 @@ extension RootViewController: UISearchBarDelegate {
         API.search(forUsersWithName: searchBar.text!) { (result) in
             print(result)
         }
-        
     }
 }
 
