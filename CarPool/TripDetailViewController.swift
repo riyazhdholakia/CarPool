@@ -30,7 +30,7 @@ class TripDetailViewController: UIViewController {
     
     func showTripDetails() {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d, h:mm a"
+        formatter.dateFormat = "MMM d, YYYY h:mm a"
         pickUpDriverNameLabel.text = "Pick up driver name: " + (trip.pickUp?.driver.name ?? "Unclaimed")
         dropOffDriverNameLabel.text = "Drop off driver name: " + (trip.dropOff?.driver.name ?? "Unclaimed")
         //        dropOffDriverPhoneLabel.text = "Drop off driver phone#: " + "\(trip.dropOff?.driver?.phone)"
@@ -49,26 +49,36 @@ class TripDetailViewController: UIViewController {
         let alert = UIAlertController(title: "Alert", message: "Do you want to pickup?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
             self.claimPickupButton.backgroundColor = UIColor.white
-            print("you have pressed the ok button")
+            API.claimPickUp(trip: self.trip) { (error) in
+                print(error)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "UnClaim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
+            self.claimPickupButton.backgroundColor = UIColor.white
+            API.unclaimPickUp(trip: self.trip, completion: { (error) in
+                print(error)
+            })
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
-        API.claimPickUp(trip: trip) { (error) in
-            print(error)
-        }
     }
     
     @IBAction func onDropoffClaimPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Alert", message: "Do you want to dropoff?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Claim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
             self.claimDropoffButton.backgroundColor = UIColor.white
-            print("you have pressed the ok button")
+            API.claimDropOff(trip: self.trip) { (error) in
+                print(error)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "UnClaim", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
+            self.claimPickupButton.backgroundColor = UIColor.white
+            API.unclaimDropOff(trip: self.trip, completion: { (error) in
+                print(error)
+            })
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
-        API.claimDropOff(trip: trip) { (error) in 
-            
-        }
     }
     
 }
