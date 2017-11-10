@@ -8,4 +8,10 @@ target 'CarPool' do
   # Pods for CarPool
 pod 'CarpoolKit', :git => 'https://github.com/codebasesav/CarpoolKit.git', :branch => 'master'
 
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+pod 'SideMenu'
+
 end
