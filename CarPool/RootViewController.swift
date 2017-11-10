@@ -10,14 +10,16 @@ import UIKit
 import CarpoolKit
 
 class RootViewController: UITableViewController {
-    var trips: [Trip] = []
+    
+    var trips: [Trip] = [] 
     
     @IBOutlet weak var allEventsOrMyEventsSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        API.observeTrips { (result) in
+        API.observeTrips(sender: self) { (result) in
             switch result {
             case .success(let trips):
                 self.trips = trips
@@ -31,7 +33,7 @@ class RootViewController: UITableViewController {
     @IBAction func onEventsSegmentedControllPressed(_ sender: UISegmentedControl) {
         switch allEventsOrMyEventsSegmentedControl.selectedSegmentIndex {
         case 0:
-            API.observeTrips { (result) in
+            API.observeTrips(sender: self) { (result) in
                 switch result {
                 case .success(let trips):
                     self.trips = trips
@@ -41,7 +43,7 @@ class RootViewController: UITableViewController {
                 }
             }
         case 1:
-            API.observeMyTrips(completion: { (result) in
+            API.observeMyTrips(sender: self, observer: { (result) in
                 switch result {
                 case .success(let trips):
                     self.trips = trips
@@ -84,7 +86,18 @@ class RootViewController: UITableViewController {
         }
     }
     
+    
+    
     @IBAction func unwindFromCreateTripVC(segue: UIStoryboardSegue) {
+    }
+}
+
+extension RootViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
+        API.search(forUsersWithName: searchBar.text!) { (result) in
+            print(result)
+        }
+        
     }
 }
 

@@ -60,7 +60,7 @@ extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
         mapView.setRegion(coordinateRegion, animated: true)
-        var region = MKCoordinateRegion(center: (selectedMapItem?.coordinate)! , span: coordinateRegion.span)
+        var region = MKCoordinateRegion(center: (selectedMapItem?.coordinate)! , span: coordinateRegion.span) 
         mapView.setRegion(region, animated: true)
         
         search()
