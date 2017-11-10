@@ -255,6 +255,7 @@
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="onSubmitPressed:" destination="tnw-54-FYd" eventType="touchUpInside" id="c9o-a2-FXI"/>
+                                    <segue destination="za4-Nx-fva" kind="unwind" unwindAction="unwindFromCreateTripVCWithSegue:" id="sd4-Yb-d3f"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -273,6 +274,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NgF-kZ-n6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="za4-Nx-fva" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1920.8" y="31.03448275862069"/>
         </scene>
