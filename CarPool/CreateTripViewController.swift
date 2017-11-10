@@ -19,15 +19,12 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var locationEnteredTextField: UITextField!
     @IBOutlet weak var dropoffOrPickupSegmentedControll: UISegmentedControl!
     
-    
-    let location = CLLocation()
+    var location = CLLocation()
     let locationManager = CLLocationManager()
-    var locationOfEvent = ""
     var selectedDate = Date()
     var mapItems: [MKMapItem] = []
     var locationSelected: [MKMapItem] = []
     var selectedMapItem: MKMapItem?
-    var tripSelected: Trip!
     
     override func viewDidLoad() {
         super.viewDidLoad()

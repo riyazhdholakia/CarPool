@@ -9,7 +9,7 @@
 import UIKit
 import CarpoolKit
 
-class TripDetailViewController: UIViewController {
+class TripsDetailViewController: UIViewController {
     
     var trip: Trip! //always bang after segue
     
@@ -37,12 +37,17 @@ class TripDetailViewController: UIViewController {
         //        pickUpDriverPhoneLabel.text = "Pick up driver phone#: " + "\(trip.dropOff?.driver?.phone)"
         dateForEventLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
         
-//        if trip.dropOff?.isClaimed == false {
-//            claimDropoffButton.backgroundColor = UIColor.red
-//        }
-//        if trip.pickUp?.isClaimed == false {
-//            claimPickupButton.backgroundColor = UIColor.red
-//        }
+        if pickUpDriverNameLabel.text == "Pick up driver name: Unclaimed" {
+            claimPickupButton.backgroundColor = UIColor.red
+        } else {
+            claimPickupButton.backgroundColor = UIColor.white
+        }
+        
+        if dropOffDriverNameLabel.text == "Drop off driver name: Unclaimed" {
+            claimDropoffButton.backgroundColor = UIColor.red
+        } else {
+            claimDropoffButton.backgroundColor = UIColor.white
+        }
     }
     
     @IBAction func onPickupClaimPressed(_ sender: UIButton) {
