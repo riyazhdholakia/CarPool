@@ -14,6 +14,7 @@ let logMeinNotification = Notification.Name("LogMeInDidCompleteNotification")
 class RootNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         NotificationCenter.default.addObserver(forName: logMeinNotification, object: nil, queue: .main) { (_) in
             if let loginVC = self.presentedViewController as? LoginViewController {
                 loginVC.dismiss(animated: true, completion: nil) 
@@ -22,6 +23,7 @@ class RootNavigationController: UINavigationController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         let loginVC = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
         loginVC.dismiss(animated: true, completion: nil)
         //self.present(loginVC, animated: animated, completion: nil)

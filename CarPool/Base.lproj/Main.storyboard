@@ -228,10 +228,10 @@
             </objects>
             <point key="canvasLocation" x="440.80000000000001" y="-191.1544227886057"/>
         </scene>
-        <!--Trip Detail View Controller-->
+        <!--Trips Detail View Controller-->
         <scene sceneID="RMl-va-Yp9">
             <objects>
-                <viewController id="wZx-SJ-mx3" customClass="TripDetailViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wZx-SJ-mx3" customClass="TripsDetailViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dzE-zD-McB"/>
                         <viewControllerLayoutGuide type="bottom" id="AVb-hm-Msa"/>

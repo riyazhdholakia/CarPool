@@ -80,7 +80,7 @@ class RootViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let tripDetailVC = segue.destination as? TripDetailViewController {
+        if let tripDetailVC = segue.destination as? TripsDetailViewController {
             let indexPath = tableView.indexPathForSelectedRow
             tripDetailVC.trip = trips[(indexPath?.row)!]
         }
