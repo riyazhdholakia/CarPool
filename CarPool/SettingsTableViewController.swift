@@ -16,7 +16,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0, indexPath.row == 0 {
-            API.fetchCurrentUser().value?.name
+            API.fetchCurrentUser().value?.name 
             let loginVC = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
             self.present(loginVC, animated: true, completion: nil)
         }

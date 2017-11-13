@@ -16,6 +16,7 @@
 		2F2721921FB0F03E00747B8E /* TripsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2721911FB0F03E00747B8E /* TripsDetailViewController.swift */; };
 		3C1D0B6CCDA16C5D2520D5E1 /* Pods_CarPool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98B0B0ACB9450520F7801779 /* Pods_CarPool.framework */; };
 		AB273C261FB6173D004A92B0 /* RootSideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB273C251FB6173D004A92B0 /* RootSideMenuController.swift */; };
+		AB273C501FB9EDBF004A92B0 /* SearchFriendsViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = AB273C4F1FB9EDBF004A92B0 /* SearchFriendsViewController .swift */; };
 		AB5154B61FB4B6A9005E3DE9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B51FB4B6A9005E3DE9 /* LoginViewController.swift */; };
 		AB5154B81FB4C169005E3DE9 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B71FB4C169005E3DE9 /* RootNavigationController.swift */; };
 		AB5154BA1FB4EE61005E3DE9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B91FB4EE61005E3DE9 /* SettingsTableViewController.swift */; };
@@ -38,6 +39,7 @@
 		98B0B0ACB9450520F7801779 /* Pods_CarPool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarPool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8E471BD4877CD44B97F78E /* Pods-CarPool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.debug.xcconfig"; sourceTree = "<group>"; };
 		AB273C251FB6173D004A92B0 /* RootSideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSideMenuController.swift; sourceTree = "<group>"; };
+		AB273C4F1FB9EDBF004A92B0 /* SearchFriendsViewController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchFriendsViewController .swift"; sourceTree = "<group>"; };
 		AB5154B51FB4B6A9005E3DE9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AB5154B71FB4C169005E3DE9 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		AB5154B91FB4EE61005E3DE9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				AB5154B91FB4EE61005E3DE9 /* SettingsTableViewController.swift */,
 				ABCADDAA1FB36AEF00DA2699 /* LocationsTableViewController.swift */,
 				2F0841271FB0FFAC00EFDB65 /* CreateTripViewController.swift */,
+				AB273C4F1FB9EDBF004A92B0 /* SearchFriendsViewController .swift */,
 				2F2721861FB0E77800747B8E /* Assets.xcassets */,
 				2F2721881FB0E77800747B8E /* LaunchScreen.storyboard */,
 				2F27218B1FB0E77800747B8E /* Info.plist */,
@@ -231,6 +234,7 @@
 				"${BUILT_PRODUCTS_DIR}/FirebaseCommunity/FirebaseCommunity.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -241,6 +245,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCommunity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -265,6 +270,7 @@
 				2F2721821FB0E77800747B8E /* RootViewController.swift in Sources */,
 				2F2721801FB0E77800747B8E /* AppDelegate.swift in Sources */,
 				AB273C261FB6173D004A92B0 /* RootSideMenuController.swift in Sources */,
+				AB273C501FB9EDBF004A92B0 /* SearchFriendsViewController .swift in Sources */,
 				2F0841281FB0FFAC00EFDB65 /* CreateTripViewController.swift in Sources */,
 				AB5154BA1FB4EE61005E3DE9 /* SettingsTableViewController.swift in Sources */,
 			);
