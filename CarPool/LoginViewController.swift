@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
                 API.signIn(email: emailTextField.text!, password: passwordTextField.text!, completion: { (result) in
                     switch result {
                     case .success(_):
-                        NotificationCenter.default.post(name: logMeinNotification, object: nil)
+                        NotificationCenter.default.post(name: logMeinNotification, object: nil) 
                     case .failure(let error):
                         print(error)
                     }
