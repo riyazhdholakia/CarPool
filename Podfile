@@ -14,4 +14,6 @@ use_frameworks!
 
 pod 'SideMenu'
 
+pod 'JTAppleCalendar', '~> 7.1'
+
 end
