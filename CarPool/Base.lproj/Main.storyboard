@@ -58,7 +58,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="W4A-OQ-kb9" kind="show" id="rFm-ii-5Vg"/>
+                                            <segue destination="USm-8K-re2" kind="show" id="83O-Qp-DsJ"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4uD-sT-haW">
@@ -77,9 +77,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="USm-8K-re2" kind="show" id="3iN-um-bDb"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Sk9-DK-bbf">
                                         <rect key="frame" x="0.0" y="132" width="375" height="44"/>
@@ -97,6 +94,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="W4A-OQ-kb9" kind="show" id="UEh-7U-cZv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -635,7 +635,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="kuo-4w-Lid">
-                                <rect key="frame" x="24" y="30" width="327" height="283"/>
+                                <rect key="frame" x="24" y="30" width="327" height="291"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3n0-EZ-fzu">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="29"/>
@@ -671,8 +671,10 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3E-Ea-pNh">
-                                        <rect key="frame" x="0.0" y="253" width="327" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3E-Ea-pNh">
+                                        <rect key="frame" x="0.0" y="253" width="327" height="38"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <action selector="loginSignupPressed:" destination="D7F-if-oBU" eventType="touchUpInside" id="4Y7-4y-nBj"/>
@@ -699,7 +701,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pbx-S2-ccZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2174" y="847"/>
+            <point key="canvasLocation" x="2173.5999999999999" y="846.9265367316342"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ecb-Rl-wWw">
