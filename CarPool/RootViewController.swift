@@ -52,6 +52,16 @@ class RootViewController: UITableViewController {
                     print(error)
                 }
             })
+            
+//            API.observeTheTripsOfMyFriends(sender: self, observer: { (result) in
+//                switch result {
+//                case .success(let trips):
+//                    self.trips = trips
+//                    self.tableView.reloadData()
+//                case .failure(let error):
+//                    print(error)
+//                }
+//            })
         default:
             break
         }
@@ -63,19 +73,19 @@ class RootViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RootVCEvents", for: indexPath)
-        if allEventsOrMyEventsSegmentedControl.selectedSegmentIndex == 0 {
+        //if allEventsOrMyEventsSegmentedControl.selectedSegmentIndex == 0 {
             if trips[indexPath.row].event.description == "" {
                 cell.textLabel?.text = "* no event description *"
             } else {
                 cell.textLabel?.text = trips[indexPath.row].event.description
             }
-        } else if allEventsOrMyEventsSegmentedControl.selectedSegmentIndex == 1 {
-            if trips[indexPath.row].event.description == "" {
-                cell.textLabel?.text = "* no event description *"
-            } else {
-                cell.textLabel?.text = trips[indexPath.row].event.description
-            }
-        }
+        //} else if allEventsOrMyEventsSegmentedControl.selectedSegmentIndex == 1 {
+//            if trips[indexPath.row].event.description == "" {
+//                cell.textLabel?.text = "* no event description *"
+//            } else {
+//                cell.textLabel?.text = trips[indexPath.row].event.description
+//            }
+        //}
         return cell
     }
     

@@ -737,7 +737,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="blurred image LoginVC" width="3333" height="3333"/>
+        <image name="blurred image LoginVC" width="1666" height="1666"/>
         <image name="burger4" width="32" height="32"/>
         <image name="burger_image_icon" width="32" height="32"/>
     </resources>
