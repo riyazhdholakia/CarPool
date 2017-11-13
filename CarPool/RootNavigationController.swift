@@ -12,17 +12,18 @@ import CarpoolKit
 let logMeinNotification = Notification.Name("LogMeInDidCompleteNotification")
 
 class RootNavigationController: UINavigationController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if API.isCurrentUserAnonymous == false {
             NotificationCenter.default.addObserver(forName: logMeinNotification, object: nil, queue: .main) { (_) in
-                if let loginVC = self.presentedViewController as? LoginViewController {
-                    loginVC.dismiss(animated: true, completion: nil)
-                }
+                let loginVC = self.presentedViewController as? LoginViewController
+                loginVC?.dismiss(animated: true, completion: nil)
             }
         }
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

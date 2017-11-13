@@ -14,7 +14,7 @@ class RootViewController: UITableViewController {
     var trips: [Trip] = [] 
     
     @IBOutlet weak var allEventsOrMyEventsSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
