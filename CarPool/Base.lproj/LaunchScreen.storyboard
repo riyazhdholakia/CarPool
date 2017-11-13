@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carpool-clip-art" translatesAutoresizingMaskIntoConstraints="NO" id="24s-hn-aNJ">
-                                <rect key="frame" x="70" y="296" width="234" height="75"/>
+                                <rect key="frame" x="16" y="286" width="343" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>

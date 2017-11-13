@@ -14,8 +14,12 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchForFriends: UISearchBar!
     
     var friends: [User] = []
+    var myFriends: [User] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        myFriendsShown()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -27,6 +31,7 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
                     case .success(let friends):
                         self.friends = friends
                         self.tableView.reloadData()
+                        print(friends)
                     case .failure(let error):
                         print(error)
                     }
@@ -39,26 +44,43 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+        if section == 0 {
+            return myFriends.count
+        } else {
+            return friends.count
+        }
     }
     
+    //todo in to different sections
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchFriends", for: indexPath)
-        cell.textLabel?.text = friends[indexPath.row].name
+        if indexPath.section == 0 {
+            cell.textLabel?.text = myFriends[indexPath.row].name
+        } else if indexPath.section == 1 {
+            cell.textLabel?.text = friends[indexPath.row].name
+        }
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//    }
-//
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//
-//    }
-//
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//    }
+    //todo the rest so they can delete friends or add
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+   override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "My friends"
+        case 1:
+            return "Add friends"
+        default:
+            return " "
+        }
+    }
     
 }
 

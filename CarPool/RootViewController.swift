@@ -79,13 +79,13 @@ class RootViewController: UITableViewController {
             } else {
                 cell.textLabel?.text = trips[indexPath.row].event.description
             }
-        //} else if allEventsOrMyEventsSegmentedControl.selectedSegmentIndex == 1 {
+//        } else if allEventsOrMyEventsSegmentedControl.selectedSegmentIndex == 1 {
 //            if trips[indexPath.row].event.description == "" {
 //                cell.textLabel?.text = "* no event description *"
 //            } else {
 //                cell.textLabel?.text = trips[indexPath.row].event.description
 //            }
-        //}
+//        }
         return cell
     }
     
