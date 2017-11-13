@@ -14,7 +14,6 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchForFriends: UISearchBar!
     
     var friends: [User] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
