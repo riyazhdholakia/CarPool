@@ -34,7 +34,7 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
             case .failure(let error):
                 print(error)
             }
-            self.tableView.reloadData()
+            self.tableView.reloadData() 
         }
     }
     

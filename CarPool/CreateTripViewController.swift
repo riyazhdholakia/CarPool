@@ -96,7 +96,7 @@ class CreateTripViewController: UIViewController {
                     case .success(let createTrip):
                         if self.dropoffOrPickupSegmentedControll.selectedSegmentIndex == 0 {
                             API.claimDropOff(trip: createTrip, completion: { (error) in
-                                print(error)
+                                print(error) 
                             })
                         } else if self.dropoffOrPickupSegmentedControll.selectedSegmentIndex == 1 {
                             API.claimPickUp(trip: createTrip, completion: { (error) in

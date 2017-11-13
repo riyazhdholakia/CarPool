@@ -24,7 +24,7 @@ class LocationsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Locations", for: indexPath)
-        cell.textLabel?.text = mapItems[indexPath.row].name
+        cell.textLabel?.text = mapItems[indexPath.row].name 
         cell.detailTextLabel?.text = mapItems[indexPath.row].placemark.title
         return cell 
     }
