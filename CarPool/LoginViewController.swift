@@ -44,16 +44,33 @@ class LoginViewController: UIViewController {
         if emailTextField.text != nil, passwordTextField.text != nil {
             if segmentedControlLoginSignup.selectedSegmentIndex == 0 {
                 API.signIn(email: emailTextField.text!, password: passwordTextField.text!, completion: { (result) in
-                    NotificationCenter.default.post(name: logMeinNotification, object: nil)
+                    switch result {
+                    case .success(_):
+                        NotificationCenter.default.post(name: logMeinNotification, object: nil)
+                        if let loginVC = self.presentedViewController as? LoginViewController {
+                            loginVC.dismiss(animated: true, completion: nil)
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
                 })
             }
-        } else if segmentedControlLoginSignup.selectedSegmentIndex == 1 {
-            if passwordTextField.text! == confirmPasswordTextField.text {
-                if fullNameTextField != nil {
-                    if emailTextField != nil {
-                        API.signUp(email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!, completion: { (result) in
-                            NotificationCenter.default.post(name: logMeinNotification, object: nil)
-                        })
+            else if segmentedControlLoginSignup.selectedSegmentIndex == 1 {
+                if passwordTextField.text! == confirmPasswordTextField.text {
+                    if fullNameTextField != nil {
+                        if emailTextField != nil {
+                            API.signUp(email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!, completion: { (result) in
+                                switch result {
+                                case .success(_):
+                                    NotificationCenter.default.post(name: logMeinNotification, object: nil)
+                                    if let loginVC = self.presentedViewController as? LoginViewController {
+                                        loginVC.dismiss(animated: true, completion: nil)
+                                    }
+                                case .failure(let error):
+                                    print(error)
+                                }
+                            })
+                        }
                     }
                 }
             }

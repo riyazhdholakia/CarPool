@@ -90,11 +90,3 @@ class RootViewController: UITableViewController {
     }
 }
 
-extension RootViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
-        API.search(forUsersWithName: searchBar.text!) { (result) in
-            print(result)
-        }
-    }
-}
-
