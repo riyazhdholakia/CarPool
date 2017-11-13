@@ -43,6 +43,18 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
+    func myFriendsShown() {
+        API.observeFriends(sender: self) { (result) in
+            switch result {
+            case .success(let myFriends):
+                self.myFriends = myFriends
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return myFriends.count
@@ -71,7 +83,7 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
         return 2
     }
     
-   override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
             return "My friends"
