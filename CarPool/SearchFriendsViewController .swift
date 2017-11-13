@@ -14,6 +14,7 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchForFriends: UISearchBar!
     
     var friends: [String] = []
+//    var namesOfFriends = ["Josh,"Nik","Tina","Ross"] 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +23,21 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
 //    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 //        API.search(forUsersWithName: searchBar.text!) { (result) in
 //                API.observeFriends(sender: self, observer: { (result) in
-//                    switch result {
-//                    }
 //                })
 //                self.tableView.reloadData()
 //        }
 //        }
+//
+//
+//    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
+//        API.search(forUsersWithName: searchBar.text!) { (result) in
+//            API.observeFriends(sender: self, observer: { (result) in
+//            })
+//            self.tableView.reloadData()
+//        }
+//
+//
     
-        
         override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return friends.count
         }
