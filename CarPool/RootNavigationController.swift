@@ -24,9 +24,11 @@ class RootNavigationController: UINavigationController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if API.isCurrentUserAnonymous { 
-            let loginVC = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
-            present(loginVC, animated: animated, completion: nil)
+        let loginVC = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
+        if API.isCurrentUserAnonymous {
+            present(loginVC, animated: true, completion: nil)
+        } else {
+            loginVC.dismiss(animated: true, completion: nil)
         }
     }
     
