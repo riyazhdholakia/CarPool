@@ -42,8 +42,25 @@ public enum API {
     }
 
     public static func signUp(email: String, password: String, fullName: String, completion: @escaping (Result<User>) -> Void) {
+        func set(userFullName: String) {
+            guard let user = Auth.auth().currentUser else { return }
+
+            let rq = user.createProfileChangeRequest()
+            rq.displayName = userFullName
+            rq.commitChanges(completion: nil)
+
+            Database.database().reference().child("users").child(user.uid).child("name").setValue(userFullName)
+        }
+
         if let user = Auth.auth().currentUser {
-            link(user: user, email: email, password: password, completion: completion)
+            set(userFullName: fullName)  //FIXME strictly shouldn't do this unless next bit succeeds
+            link(user: user, email: email, password: password) { result in
+                if case .success = result {
+                    // we need to set the username for both the anonymous user and the new user
+                    set(userFullName: fullName)
+                }
+                completion(result)
+            }
             Database.database().reference().child("users").child(user.uid).updateChildValues([
                 "name": fullName
             ])
@@ -84,20 +101,18 @@ public enum API {
     }
 
     public static func signIn(email: String, password: String, completion: @escaping (Result<User>) -> Void) {
-        if let user = Auth.auth().currentUser {
-            link(user: user, email: email, password: password, completion: completion)
-        } else {
-            firstly {
-                PromiseKit.wrap{ Auth.auth().signIn(withEmail: email, password: password, completion: $0) }
-            }.then { _ in
-                auth()
-            }.then {
-                fetchCurrentUser()
-            }.then {
-                completion(.success($0))
-            }.catch {
-                completion(.failure($0))
-            }
+        //FIXME cannot link anonymous account this way, Firebase errors saying the account is already linked
+        // (referring to the email/pass account)
+        firstly {
+            PromiseKit.wrap{ Auth.auth().signIn(withEmail: email, password: password, completion: $0) }
+        }.then { _ in
+            auth()
+        }.then {
+            fetchCurrentUser()
+        }.then {
+            completion(.success($0))
+        }.catch {
+            completion(.failure($0))
         }
     }
 
@@ -391,16 +406,6 @@ public enum API {
         }.catch {
             completion(.failure($0))
         }
-    }
-
-    public static func set(userFullName: String) {
-        guard let user = Auth.auth().currentUser else { return }
-
-        let rq = user.createProfileChangeRequest()
-        rq.displayName = userFullName
-        rq.commitChanges(completion: nil)
-
-        Database.database().reference().child("users").child(user.uid).child("name").setValue(userFullName)
     }
 
     public static func set(endTime: Date, for event: Event) {

@@ -47,9 +47,6 @@ class LoginViewController: UIViewController {
                     switch result {
                     case .success(_):
                         NotificationCenter.default.post(name: logMeinNotification, object: nil)
-                        if let loginVC = self.presentedViewController as? LoginViewController {
-                            loginVC.dismiss(animated: true, completion: nil)
-                        }
                     case .failure(let error):
                         print(error)
                     }
@@ -63,9 +60,6 @@ class LoginViewController: UIViewController {
                                 switch result {
                                 case .success(_):
                                     NotificationCenter.default.post(name: logMeinNotification, object: nil)
-                                    if let loginVC = self.presentedViewController as? LoginViewController {
-                                        loginVC.dismiss(animated: true, completion: nil)
-                                    }
                                 case .failure(let error):
                                     print(error)
                                 }
@@ -74,6 +68,8 @@ class LoginViewController: UIViewController {
                     }
                 }
             }
+            let loginVC = self.presentedViewController as? LoginViewController
+            loginVC?.dismiss(animated: true, completion: nil)
         }
     }
 }
