@@ -82,17 +82,31 @@ class CreateTripViewController: UIViewController {
             API.addChild(name: childrenTextField.text!, completion: { (result) in
                 print(result)
             })
-            API.createTrip(eventDescription: nameOfEventTextField.text!, eventTime: datePicker.date, eventLocation: location) { (trip) in
-                print(trip)
-//                if self.dropoffOrPickupSegmentedControll.selectedSegmentIndex == 0 {
-//                    API.claimDropOff(trip: self.tripSelected, completion: { (error) in
-//                        print(error!)
-//                    })
-//                } else if self.dropoffOrPickupSegmentedControll.selectedSegmentIndex == 1 {
-//                    API.claimPickUp(trip: self.tripSelected, completion: { (error) in
-//                        print(error!)
-//                    })
-//                }
+            
+            if let selectedMapItem = selectedMapItem {
+                
+                let latitude = selectedMapItem.coordinate.latitude
+                let longitude = selectedMapItem.coordinate.longitude
+                let location = CLLocation(latitude: latitude, longitude: longitude)
+                
+                API.createTrip(eventDescription: nameOfEventTextField.text!, eventTime: datePicker.date, eventLocation: location) { (result) in
+                    print(result)
+                    
+                    switch result {
+                    case .success(let createTrip):
+                        if self.dropoffOrPickupSegmentedControll.selectedSegmentIndex == 0 {
+                            API.claimDropOff(trip: createTrip, completion: { (error) in
+                                print(error)
+                            })
+                        } else if self.dropoffOrPickupSegmentedControll.selectedSegmentIndex == 1 {
+                            API.claimPickUp(trip: createTrip, completion: { (error) in
+                                print(error)
+                            })
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
             }
         }
     }

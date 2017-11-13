@@ -15,16 +15,18 @@ class RootNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(forName: logMeinNotification, object: nil, queue: .main) { (_) in
-            if let loginVC = self.presentedViewController as? LoginViewController {
-                loginVC.dismiss(animated: true, completion: nil) 
+        if API.isCurrentUserAnonymous == false {
+            NotificationCenter.default.addObserver(forName: logMeinNotification, object: nil, queue: .main) { (_) in
+                if let loginVC = self.presentedViewController as? LoginViewController {
+                    loginVC.dismiss(animated: true, completion: nil)
+                }
             }
         }
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if API.isCurrentUserAnonymous {
+        if API.isCurrentUserAnonymous == true {
             let loginVC = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
             present(loginVC, animated: animated, completion: nil)
         }

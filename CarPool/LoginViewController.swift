@@ -49,9 +49,13 @@ class LoginViewController: UIViewController {
             }
         } else if segmentedControlLoginSignup.selectedSegmentIndex == 1 {
             if passwordTextField.text! == confirmPasswordTextField.text {
-                API.signUp(email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!, completion: { (result) in 
-                    NotificationCenter.default.post(name: logMeinNotification, object: nil)
-                })
+                if fullNameTextField != nil {
+                    if emailTextField != nil {
+                        API.signUp(email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!, completion: { (result) in
+                            NotificationCenter.default.post(name: logMeinNotification, object: nil)
+                        })
+                    }
+                }
             }
         }
     }
