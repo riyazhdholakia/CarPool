@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Database.database().isPersistenceEnabled = true
         
-        API.set(userFullName: "RI-ANA")
+        //API.set(userFullName: "RI-ANA")
         
         return true
     }
