@@ -15,9 +15,9 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var childrenTextField: UITextField!
     @IBOutlet weak var seeLocationOnAMapButton: UIButton!
-    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var locationEnteredTextField: UITextField!
     @IBOutlet weak var dropoffOrPickupSegmentedControll: UISegmentedControl!
+    @IBOutlet weak var congratsLabel: UILabel!
     
     var location = CLLocation()
     let locationManager = CLLocationManager()
@@ -68,13 +68,22 @@ class CreateTripViewController: UIViewController {
         selectedDate = sender.date
     }
     
-    @IBAction func onSubmitPressed(_ sender: UIButton) {
+    @IBAction func onConfirmPressed(_ sender: UIBarButtonItem) {
         createTrip()
+        congratsLabel.text = "Your trip has been created."
+        nameOfEventTextField.text = ""
+        datePicker.date = Date()
+        childrenTextField.text = ""
+        locationEnteredTextField.text = ""
     }
     
     @IBAction func seeLocationOnAMapPressed(_ sender: UIButton) {
         let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapVC") as! MapViewController
         mapVC.selectedMapItem = selectedMapItem
+    }
+    
+    @IBAction func onEventPressed(_ sender: UITextField) {
+        congratsLabel.text = ""
     }
     
     func createTrip() {
