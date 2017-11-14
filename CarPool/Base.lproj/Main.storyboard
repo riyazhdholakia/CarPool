@@ -18,7 +18,7 @@
         <!--Menu View Controller-->
         <scene sceneID="S3H-vM-ZQA">
             <objects>
-                <tableViewController id="PaS-69-30P" userLabel="Menu View Controller" sceneMemberID="viewController">
+                <tableViewController id="PaS-69-30P" userLabel="Menu View Controller" customClass="MenuTableViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="30" id="qxj-Ar-NtR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,6 +164,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Menu" id="UlU-MD-wvn"/>
+                    <connections>
+                        <outlet property="maps" destination="8pM-Xk-Kcf" id="BhR-5U-xf3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eV8-G2-Hz2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -272,6 +275,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="allEventsOrMyEventsSegmentedControl" destination="91f-oV-fa3" id="teY-6z-1YZ"/>
                         <outlet property="searchDisplayController" destination="KbI-wE-zFC" id="kLR-OF-GbU"/>
                     </connections>
                 </tableViewController>
@@ -879,6 +883,7 @@
         <image name="silver-light-blue-wave-abstract-backgrounds-powerpoint-1024x725" width="512" height="362"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8xt-Sd-VcX"/>
         <segue reference="LuK-d6-ree"/>
     </inferredMetricsTieBreakers>
 </document>
