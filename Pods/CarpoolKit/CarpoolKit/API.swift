@@ -137,11 +137,8 @@ public enum API {
             let reaper = Lifetime()
             reaper.ref = Database.database().reference().child("trips")
             reaper.observer = reaper.ref.observe(.value) { snapshot in
-                guard let foo = snapshot.value as? [String: [String: Any]] else {
-                    return completion(.failure(API.Error.noChildNodes))
-                }
                 firstly {
-                    when(resolved: foo.map{ Trip.make(key: $0, json: $1) })
+                    when(resolved: snapshot.children.map{ Trip.make(with: $0 as! DataSnapshot) })
                 }.then { results -> Void in
                     var trips: [Trip] = []
                     for case .fulfilled(let trip) in results { trips.append(trip) }
@@ -215,17 +212,12 @@ public enum API {
         let reaper = Lifetime()
         reaper.ref = Database.database().reference().child("trips").child(trip.key)
         reaper.observer = reaper.ref.observe(.value) { snapshot in
-            do {
-                guard let json = snapshot.value as? [String: Any] else { throw Error.noChildNode }
-                firstly {
-                    Trip.make(key: trip.key, json: json)
-                }.then {
-                    observer(.success($0))
-                }.catch {
-                    observer(.failure($0))
-                }
-            } catch {
-                observer(.failure(error))
+            firstly {
+                Trip.make(with: snapshot)
+            }.then {
+                observer(.success($0))
+            }.catch {
+                observer(.failure($0))
             }
         }
         sender.view.addSubview(reaper)
@@ -475,6 +467,7 @@ public enum API {
     ///This is the `Promise` returning variant of this function.
     ///Use the original `search(forUsersWithName:completion:)` unless you intend to use Promises.
     public static func search(forUsersWithName query: String) -> Promise<[User]> {
+        let query = query.lowercased()
         return firstly {
             Database.fetch(path: "users")
         }.then(on: .global()) { snapshot in
