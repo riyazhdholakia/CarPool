@@ -19,6 +19,7 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+     
         API.observeMyTripCalendar(sender: self) { (result) in
             switch result {
             case .success(let trip):
