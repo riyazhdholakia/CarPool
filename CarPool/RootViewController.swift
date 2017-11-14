@@ -85,11 +85,7 @@ class RootViewController: UITableViewController {
                 cell.textLabel?.text = trips[indexPath.row].event.description
             }
         } else {
-            if trips[indexPath.row].event.description == "" {
-                cell.textLabel?.text = "* no event description *"
-            } else {
-                
-            }
+            
         }
         return cell
     }
