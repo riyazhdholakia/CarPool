@@ -23,6 +23,14 @@ class LoginViewController: UIViewController {
         
         confirmPasswordTextField.isHidden = true
         fullNameTextField.isHidden = true
+        
+        
+        fullNameTextField.layer.cornerRadius = 15
+        confirmPasswordTextField.layer.cornerRadius = 15
+        loginSignupButton.layer.cornerRadius = 15
+        passwordTextField.layer.cornerRadius = 15
+        emailTextField.layer.cornerRadius = 15
+        segmentedControlLoginSignup.layer.cornerRadius = 15
     }
     
     @IBAction func onSegmentedControlLoginSignupPressed(_ sender: UISegmentedControl) {

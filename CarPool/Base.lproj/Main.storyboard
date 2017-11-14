@@ -51,8 +51,8 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.45371224910000002" green="0.58751723199999994" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.45371224910000002" green="0.58751723199999994" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" red="0.44905906699999998" green="0.55375029200000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="NtH-Ea-0g6" kind="show" id="1Jk-W7-b1x"/>
                                         </connections>
@@ -78,8 +78,8 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.9061954015" green="0.95875634519999997" blue="0.51343711069999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.9061954015" green="0.95875634519999997" blue="0.51343711069999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" red="0.44905906699999998" green="0.55375029200000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="mKV-AC-OMS" kind="show" id="83O-Qp-DsJ"/>
                                         </connections>
@@ -188,7 +188,7 @@
             </objects>
             <point key="canvasLocation" x="121" y="-1236"/>
         </scene>
-        <!--Schedule-->
+        <!--Schedule of Events-->
         <scene sceneID="kg7-Ud-c7S">
             <objects>
                 <tableViewController id="NtH-Ea-0g6" customClass="RootViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
@@ -202,15 +202,15 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eHj-vb-fDs">
-                                    <rect key="frame" x="8" y="8" width="359" height="29"/>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="91f-oV-fa3">
+                                    <rect key="frame" x="16" y="10" width="343" height="29"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <segments>
                                         <segment title="My Events"/>
                                         <segment title="Friend's Events"/>
                                     </segments>
                                     <connections>
-                                        <action selector="onEventsSegmentedControllPressed:" destination="NtH-Ea-0g6" eventType="valueChanged" id="2sn-u4-ihx"/>
+                                        <action selector="onEventsSegmentedControllPressed:" destination="NtH-Ea-0g6" eventType="valueChanged" id="vxV-5G-eyW"/>
                                     </connections>
                                 </segmentedControl>
                             </subviews>
@@ -244,7 +244,8 @@
                             <outlet property="delegate" destination="NtH-Ea-0g6" id="N3W-4Z-Wj9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Schedule" id="tMS-cw-Xc4">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Schedule of Events" id="tMS-cw-Xc4">
                         <barButtonItem key="leftBarButtonItem" image="burger_image_icon" style="plain" id="psq-eB-Qp0">
                             <inset key="imageInsets" minX="-29" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="landscapeImageInsets" minX="-21" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -268,8 +269,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="allEventsOrMyEventsSegmentedControl" destination="eHj-vb-fDs" id="Wkc-k2-1Gs"/>
                         <outlet property="searchDisplayController" destination="KbI-wE-zFC" id="kLR-OF-GbU"/>
                     </connections>
                 </tableViewController>
@@ -357,6 +359,7 @@
                                 <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Type a friend's name" translatesAutoresizingMaskIntoConstraints="NO" id="OFf-iH-YZO">
                                     <rect key="frame" x="0.0" y="8" width="375" height="56"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.45371224910000002" green="0.58751723199999994" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
                                         <outlet property="delegate" destination="A4N-du-n6j" id="zs8-zb-rWv"/>
@@ -898,6 +901,7 @@
         <image name="indigo-ombre-plain" width="825" height="550"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="83O-Qp-DsJ"/>
         <segue reference="1Jk-W7-b1x"/>
         <segue reference="9db-7K-wFy"/>
     </inferredMetricsTieBreakers>
