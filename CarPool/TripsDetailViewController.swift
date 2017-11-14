@@ -26,6 +26,9 @@ class TripsDetailViewController: UIViewController {
         
         title = trip.event.description
         showTripDetails()
+        
+        claimDropoffButton.layer.cornerRadius = 12
+        claimPickupButton.layer.cornerRadius = 12
     }
     
     func showTripDetails() {
