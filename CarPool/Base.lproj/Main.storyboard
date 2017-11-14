@@ -51,8 +51,8 @@
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.22989954253257505" green="0.50594853962785813" blue="1" alpha="0.69654323630136983" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.2298995425" green="0.50594853959999997" blue="1" alpha="0.69654323630000003" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="NtH-Ea-0g6" kind="show" id="LuK-d6-ree"/>
                                         </connections>
@@ -488,6 +488,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="silver-light-blue-wave-abstract-backgrounds-powerpoint-1024x725" translatesAutoresizingMaskIntoConstraints="NO" id="dc5-dG-vSc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of children:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37R-ss-5kn" userLabel="Name of event:">
                                 <rect key="frame" x="16" y="115" width="139" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -872,6 +876,7 @@
         <image name="icons8-services-filled" width="25" height="25"/>
         <image name="icons8-to-do-filled" width="25" height="25"/>
         <image name="indigo-ombre-plain" width="825" height="550"/>
+        <image name="silver-light-blue-wave-abstract-backgrounds-powerpoint-1024x725" width="512" height="362"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LuK-d6-ree"/>
