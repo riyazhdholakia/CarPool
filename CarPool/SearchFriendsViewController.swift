@@ -32,6 +32,8 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
     //todo maybe remove it from the observed list
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         API.add(friend: friendsList[indexPath.row])
+        friendsList.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
