@@ -13,7 +13,7 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchForFriends: UISearchBar!
     
-    var friends: [User] = []
+    var friendsList: [User] = []
     var myFriends: [User] = []
     
     override func viewDidLoad() {
@@ -25,21 +25,12 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         API.search(forUsersWithName: searchBar.text!) { (result) in
             switch result {
-            case .success(_):
-                API.observeFriends(sender: self, observer: { (result) in
-                    switch result {
-                    case .success(let friends):
-                        self.friends = friends
-                        self.tableView.reloadData()
-                        print(friends)
-                    case .failure(let error):
-                        print(error)
-                    }
-                })
+            case .success(let friends):
+                self.friendsList = friends
+                self.tableView.reloadData()
             case .failure(let error):
                 print(error)
             }
-            self.tableView.reloadData() 
         }
     }
     
@@ -59,24 +50,33 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
         if section == 0 {
             return myFriends.count
         } else {
-            return friends.count
+            return friendsList.count
         }
     }
     
-    //todo in to different sections
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchFriends", for: indexPath)
         if indexPath.section == 0 {
             cell.textLabel?.text = myFriends[indexPath.row].name
         } else if indexPath.section == 1 {
-            cell.textLabel?.text = friends[indexPath.row].name
+            cell.textLabel?.text = friendsList[indexPath.row].name
         }
         return cell
     }
     
-    //todo the rest so they can delete friends or add
+    //todo maybe remove it from the observed list 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.section == 1 {
+            API.add(friend: friendsList[indexPath.row])
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            API.remove(friend: myFriends[indexPath.row])
+            myFriends.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -86,9 +86,9 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "My friends"
+            return "My friends (swipe to delete)"
         case 1:
-            return "Add friends"
+            return "Add friends (tap to add)"
         default:
             return " "
         }

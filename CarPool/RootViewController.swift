@@ -33,7 +33,7 @@ class RootViewController: UITableViewController {
     @IBAction func onEventsSegmentedControllPressed(_ sender: UISegmentedControl) {
         switch allEventsOrMyEventsSegmentedControl.selectedSegmentIndex {
         case 0:
-            API.observeTrips(sender: self) { (result) in
+            API.observeTheTripsOfMyFriends(sender: self, observer: { (result) in
                 switch result {
                 case .success(let trips):
                     self.trips = trips
@@ -41,7 +41,7 @@ class RootViewController: UITableViewController {
                 case .failure(let error):
                     print(error)
                 }
-            }
+            })
         case 1:
             API.observeMyTrips(sender: self, observer: { (result) in
                 switch result {
@@ -53,15 +53,6 @@ class RootViewController: UITableViewController {
                 }
             })
             
-//            API.observeTheTripsOfMyFriends(sender: self, observer: { (result) in
-//                switch result {
-//                case .success(let trips):
-//                    self.trips = trips
-//                    self.tableView.reloadData()
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            })
         default:
             break
         }

@@ -94,6 +94,14 @@ class CreateTripViewController: UIViewController {
                     
                     switch result {
                     case .success(let createTrip):
+                        API.addChild(name: self.childrenTextField.text!, completion: { (result) in
+                            switch result {
+                            case .success(let child):
+                                print(child)
+                            case .failure(let error):
+                                print(error)
+                            }
+                        })
                         if self.dropoffOrPickupSegmentedControll.selectedSegmentIndex == 0 {
                             API.claimDropOff(trip: createTrip, completion: { (error) in
                                 print(error) 
