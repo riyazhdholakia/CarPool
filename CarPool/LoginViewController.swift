@@ -54,7 +54,8 @@ class LoginViewController: UIViewController {
                 API.signIn(email: emailTextField.text!, password: passwordTextField.text!, completion: { (result) in
                     switch result {
                     case .success(_):
-                        NotificationCenter.default.post(name: logMeinNotification, object: nil) 
+                        NotificationCenter.default.post(name: logMeinNotification, object: nil)
+                        self.dismiss(animated: true, completion: nil)
                     case .failure(let error):
                         print(error)
                     }
@@ -68,6 +69,7 @@ class LoginViewController: UIViewController {
                                 switch result {
                                 case .success(_):
                                     NotificationCenter.default.post(name: logMeinNotification, object: nil)
+                                    self.dismiss(animated: true, completion: nil)
                                 case .failure(let error):
                                     print(error)
                                 }
@@ -76,8 +78,8 @@ class LoginViewController: UIViewController {
                     }
                 }
             }
-            let loginVC = self.presentedViewController as? LoginViewController
-            loginVC?.dismiss(animated: true, completion: nil)
         }
+//        let loginVC = self.presentedViewController as? LoginViewController
+        //dismiss(animated: true, completion: nil)
     }
 }
