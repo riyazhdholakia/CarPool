@@ -23,7 +23,7 @@ class RootViewController: UITableViewController {
         API.observeMyTripCalendar(sender: self) { (result) in
             switch result {
             case .success(let trip):
-                self.tripCalendar = [trip]
+                self.tripCalendar = trip
 //                API.mark(trip: trips, repeating: true)
             case .failure(let error):
                 print(error)
@@ -39,7 +39,7 @@ class RootViewController: UITableViewController {
             case .failure(let error):
                 print(error)
             }
-        }
+        })
     }
     
     @IBAction func onEventsSegmentedControllPressed(_ sender: UISegmentedControl) {

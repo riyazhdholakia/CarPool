@@ -107,7 +107,7 @@
                                             <color key="tintColor" red="0.44905906699999998" green="0.55375029200000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Settings" id="Sk9-DK-bbf" userLabel="Logout">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Invite" id="Sk9-DK-bbf" userLabel="Logout">
                                         <rect key="frame" x="0.0" y="132" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sk9-DK-bbf" id="iu6-Nf-VzJ">
@@ -129,9 +129,6 @@
                                             <color key="backgroundColor" red="0.170268476" green="0.28139618039999997" blue="0.95552104709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="D7F-if-oBU" kind="presentation" id="D6g-1F-zEu"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Maps" id="8pM-Xk-Kcf">
                                         <rect key="frame" x="0.0" y="176" width="375" height="44"/>
@@ -155,14 +152,14 @@
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ee5-FR-VqJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Logout" id="ee5-FR-VqJ">
                                         <rect key="frame" x="0.0" y="220" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ee5-FR-VqJ" id="D1P-fh-6O6">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Account Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE9-KP-iec">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE9-KP-iec">
                                                     <rect key="frame" x="64" y="11" width="295" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -176,6 +173,9 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.170268476" green="0.28139618039999997" blue="0.95552104709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="D7F-if-oBU" kind="presentation" id="SRk-1u-5fV"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -188,6 +188,7 @@
                     <navigationItem key="navigationItem" title="Menu" id="UlU-MD-wvn"/>
                     <connections>
                         <outlet property="inviteLabel" destination="ckF-gf-ka3" id="G1f-if-cId"/>
+                        <outlet property="logoutLabel" destination="HE9-KP-iec" id="87k-vn-587"/>
                         <outlet property="maps" destination="8pM-Xk-Kcf" id="BhR-5U-xf3"/>
                     </connections>
                 </tableViewController>
@@ -236,6 +237,7 @@
                                         <segment title="All My Events"/>
                                         <segment title="Friend's Events"/>
                                     </segments>
+                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
                                         <action selector="onEventsSegmentedControllPressed:" destination="NtH-Ea-0g6" eventType="valueChanged" id="vxV-5G-eyW"/>
                                     </connections>
@@ -930,6 +932,7 @@
         <image name="medium_carpool_5" width="120" height="90"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8xt-Sd-VcX"/>
         <segue reference="LuK-d6-ree"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

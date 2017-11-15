@@ -19,7 +19,6 @@
 		3C1D0B6CCDA16C5D2520D5E1 /* Pods_CarPool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98B0B0ACB9450520F7801779 /* Pods_CarPool.framework */; };
 		AB273C261FB6173D004A92B0 /* RootSideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB273C251FB6173D004A92B0 /* RootSideMenuController.swift */; };
 		AB273C501FB9EDBF004A92B0 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB273C4F1FB9EDBF004A92B0 /* FriendsViewController.swift */; };
-		AB3A57071FBCD37600A8C1F2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3A57061FBCD35F00A8C1F2 /* MessageUI.framework */; };
 		AB5154B61FB4B6A9005E3DE9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B51FB4B6A9005E3DE9 /* LoginViewController.swift */; };
 		AB5154B81FB4C169005E3DE9 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B71FB4C169005E3DE9 /* RootNavigationController.swift */; };
 		AB5154BA1FB4EE61005E3DE9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B91FB4EE61005E3DE9 /* SettingsTableViewController.swift */; };
@@ -61,7 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB3A57071FBCD37600A8C1F2 /* MessageUI.framework in Frameworks */,
 				3C1D0B6CCDA16C5D2520D5E1 /* Pods_CarPool.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
