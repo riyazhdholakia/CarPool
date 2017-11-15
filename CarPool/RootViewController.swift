@@ -18,11 +18,23 @@ class RootViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
+        
         API.observeMyTripCalendar(sender: self) { (result) in
             switch result {
-            case .success(let tripCalendar):
-                self.tripCalendar = tripCalendar
+            case .success(let trip):
+                self.tripCalendar = [trip]
+//                API.mark(trip: trips, repeating: true)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        
+        API.observeMyTrips(sender: self, observer: { (result) in
+            switch result {
+            case .success(let trips):
+                self.trips = trips
                 self.tableView.reloadData()
             case .failure(let error):
                 print(error)
