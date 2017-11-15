@@ -19,9 +19,11 @@
 		3C1D0B6CCDA16C5D2520D5E1 /* Pods_CarPool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98B0B0ACB9450520F7801779 /* Pods_CarPool.framework */; };
 		AB273C261FB6173D004A92B0 /* RootSideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB273C251FB6173D004A92B0 /* RootSideMenuController.swift */; };
 		AB273C501FB9EDBF004A92B0 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB273C4F1FB9EDBF004A92B0 /* FriendsViewController.swift */; };
+		AB3A57071FBCD37600A8C1F2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3A57061FBCD35F00A8C1F2 /* MessageUI.framework */; };
 		AB5154B61FB4B6A9005E3DE9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B51FB4B6A9005E3DE9 /* LoginViewController.swift */; };
 		AB5154B81FB4C169005E3DE9 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B71FB4C169005E3DE9 /* RootNavigationController.swift */; };
 		AB5154BA1FB4EE61005E3DE9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B91FB4EE61005E3DE9 /* SettingsTableViewController.swift */; };
+		AB529CE11FBCC55B00A9E811 /* MFMessageComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB529CE01FBCC55B00A9E811 /* MFMessageComposeViewController.swift */; };
 		ABCADDAB1FB36AEF00DA2699 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCADDAA1FB36AEF00DA2699 /* LocationsTableViewController.swift */; };
 		ABCADDAD1FB390BE00DA2699 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCADDAC1FB390BE00DA2699 /* MapViewController.swift */; };
 		ABCE17441FB24FBC002C4044 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABCE17431FB24FBC002C4044 /* GoogleService-Info.plist */; };
@@ -44,9 +46,11 @@
 		9F8E471BD4877CD44B97F78E /* Pods-CarPool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.debug.xcconfig"; sourceTree = "<group>"; };
 		AB273C251FB6173D004A92B0 /* RootSideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSideMenuController.swift; sourceTree = "<group>"; };
 		AB273C4F1FB9EDBF004A92B0 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		AB3A57061FBCD35F00A8C1F2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AB5154B51FB4B6A9005E3DE9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AB5154B71FB4C169005E3DE9 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		AB5154B91FB4EE61005E3DE9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		AB529CE01FBCC55B00A9E811 /* MFMessageComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFMessageComposeViewController.swift; sourceTree = "<group>"; };
 		ABCADDAA1FB36AEF00DA2699 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		ABCADDAC1FB390BE00DA2699 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		ABCE17431FB24FBC002C4044 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3A57071FBCD37600A8C1F2 /* MessageUI.framework in Frameworks */,
 				3C1D0B6CCDA16C5D2520D5E1 /* Pods_CarPool.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,7 +90,6 @@
 		2F27217E1FB0E77800747B8E /* CarPool */ = {
 			isa = PBXGroup;
 			children = (
-				2F27217F1FB0E77800747B8E /* AppDelegate.swift */,
 				2F2721811FB0E77800747B8E /* RootViewController.swift */,
 				2F2721911FB0F03E00747B8E /* TripsDetailViewController.swift */,
 				2F2721831FB0E77800747B8E /* Main.storyboard */,
@@ -94,9 +98,11 @@
 				AB5154B51FB4B6A9005E3DE9 /* LoginViewController.swift */,
 				AB5154B71FB4C169005E3DE9 /* RootNavigationController.swift */,
 				ABCADDAC1FB390BE00DA2699 /* MapViewController.swift */,
+				2F27217F1FB0E77800747B8E /* AppDelegate.swift */,
 				AB5154B91FB4EE61005E3DE9 /* SettingsTableViewController.swift */,
 				ABCADDAA1FB36AEF00DA2699 /* LocationsTableViewController.swift */,
 				2F0841271FB0FFAC00EFDB65 /* CreateTripViewController.swift */,
+				AB529CE01FBCC55B00A9E811 /* MFMessageComposeViewController.swift */,
 				AB273C4F1FB9EDBF004A92B0 /* FriendsViewController.swift */,
 				2F35A75F1FBB573700F4E2D6 /* SearchFriendsViewController.swift */,
 				2F2721861FB0E77800747B8E /* Assets.xcassets */,
@@ -110,6 +116,7 @@
 		40B6C94220DDAFB61B925E7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB3A57061FBCD35F00A8C1F2 /* MessageUI.framework */,
 				98B0B0ACB9450520F7801779 /* Pods_CarPool.framework */,
 			);
 			name = Frameworks;
@@ -270,6 +277,7 @@
 			files = (
 				2F35A7601FBB573700F4E2D6 /* SearchFriendsViewController.swift in Sources */,
 				AB5154B61FB4B6A9005E3DE9 /* LoginViewController.swift in Sources */,
+				AB529CE11FBCC55B00A9E811 /* MFMessageComposeViewController.swift in Sources */,
 				2FA90EF41FBB95720018E006 /* MenuTableViewController.swift in Sources */,
 				AB5154B81FB4C169005E3DE9 /* RootNavigationController.swift in Sources */,
 				ABCADDAB1FB36AEF00DA2699 /* LocationsTableViewController.swift in Sources */,

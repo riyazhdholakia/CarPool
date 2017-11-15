@@ -29,6 +29,7 @@ class TripsDetailViewController: UIViewController {
         
         claimDropoffButton.layer.cornerRadius = 12
         claimPickupButton.layer.cornerRadius = 12
+        navigationController?.navigationBar.barTintColor = UIColor.blue
     }
     
     func showTripDetails() {

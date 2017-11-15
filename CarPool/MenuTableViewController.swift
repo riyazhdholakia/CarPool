@@ -9,16 +9,50 @@
 import UIKit
 import CarpoolKit
 import MapKit
+import MessageUI
 
 class MenuTableViewController: UITableViewController {
     
     @IBOutlet weak var maps: UITableViewCell!
     
+    @IBOutlet weak var inviteLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.barTintColor = UIColor.blue
+        
+        API.fetchCurrentUser { (result) in
+            switch result {
+                
+            case .success(let user):
+                self.inviteLabel.text = "Logout \(user.name!)" 
+            case .failure(let error):
+                self.inviteLabel.text = "Logout"
+                print(error)
+            }
+        }
     }
     
+//    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+//        controller.dismiss(animated: true, completion: nil)
+//    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //        if indexPath.section == 0 && indexPath.row == 3 {
+        //            if MFMessageComposeViewController.canSendText() == true {
+        //                let recipients:[String] = ["1500"]
+        //                let messageController = MFMessageComposeViewController()
+        //                messageController.messageComposeDelegate = self
+        //                messageController.recipients = recipients
+        //                messageController.body = "Your_text"
+        //                self.present(messageController, animated: true, completion: nil)
+        //            } else {
+        //                //handle text messaging not available
+        //            }
+        //        }
+        //
+        //    }
         if indexPath.section == 0 && indexPath.row == 4 {
             let latitude: CLLocationDegrees = 37.2
             let longitude: CLLocationDegrees = 22.9
@@ -35,5 +69,5 @@ class MenuTableViewController: UITableViewController {
             mapItem.openInMaps(launchOptions: options)
         }
     }
-    
 }
+

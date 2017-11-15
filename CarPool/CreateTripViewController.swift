@@ -31,6 +31,8 @@ class CreateTripViewController: UIViewController {
         
         datePicker.minimumDate = Date()
         locationManager.delegate = self
+        navigationController?.navigationBar.barTintColor = UIColor.blue
+        UITabBar.appearance().tintColor = UIColor.blue 
     }
     
     override func viewDidAppear(_ animated: Bool) {
