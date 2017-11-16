@@ -20,12 +20,22 @@ class TripsDetailViewController: UIViewController {
     @IBOutlet weak var dateForEventLabel: UILabel!
     @IBOutlet weak var claimDropoffButton: UIButton!
     @IBOutlet weak var claimPickupButton: UIButton!
+    @IBOutlet weak var timeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = trip.event.description
-        showTripDetails()
+        
+        API.observe(trip: trip, sender: self) { (result) in
+            switch result {
+            case .success(let trip):
+                self.trip = trip
+                self.showTripDetails()
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         claimDropoffButton.layer.cornerRadius = 12
         claimPickupButton.layer.cornerRadius = 12
@@ -51,33 +61,39 @@ class TripsDetailViewController: UIViewController {
     }
     
     func showTripDetails() {
-        API.observe(trip: trip, sender: self) { (result) in
-            switch result {
-            case .success(let trip):
-                self.trip = trip
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d, YYYY h:mm a"
+        formatter.dateFormat = "EEEE, MMM d, yyyy"
+        let formatterTime = DateFormatter()
+        formatterTime.dateFormat = "h:mm a"
         pickUpDriverNameLabel.text = "Pick up driver name: " + (trip.pickUp?.driver.name ?? "Unclaimed")
         dropOffDriverNameLabel.text = "Drop off driver name: " + (trip.dropOff?.driver.name ?? "Unclaimed")
         dateForEventLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
+        timeLabel.text = "Time: " + formatterTime.string(from: trip.event.time)
+        //locationLabel.text = trip.event.clLocation.
         
+        if trip.dropOff?.driver.name == nil {
+            claimDropoffButton.backgroundColor = UIColor.red
+        } else {
+            claimDropoffButton.backgroundColor = UIColor.white
+        }
         
-        if pickUpDriverNameLabel.text == "Pick up driver name: Unclaimed" {
+        if trip.pickUp?.driver.name == nil {
             claimPickupButton.backgroundColor = UIColor.red
         } else {
             claimPickupButton.backgroundColor = UIColor.white
         }
         
-        if dropOffDriverNameLabel.text == "Drop off driver name: Unclaimed" {
-            claimDropoffButton.backgroundColor = UIColor.red
-        } else {
-            claimDropoffButton.backgroundColor = UIColor.white
-        }
+//        if pickUpDriverNameLabel.text == "Pick up driver name: Unclaimed" {
+//            claimPickupButton.backgroundColor = UIColor.red
+//        } else {
+//            claimPickupButton.backgroundColor = UIColor.white
+//        }
+//
+//        if dropOffDriverNameLabel.text == "Drop off driver name: Unclaimed" {
+//            claimDropoffButton.backgroundColor = UIColor.red
+//        } else {
+//            claimDropoffButton.backgroundColor = UIColor.white
+//        }
     }
     
     @IBAction func onPickupClaimPressed(_ sender: UIButton) {

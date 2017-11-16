@@ -13,7 +13,6 @@ import MessageUI
 
 class MenuTableViewController: UITableViewController, MFMessageComposeViewControllerDelegate {
     
-    @IBOutlet weak var maps: UITableViewCell!
     @IBOutlet weak var inviteLabel: UILabel!
     @IBOutlet weak var logoutLabel: UILabel!
     

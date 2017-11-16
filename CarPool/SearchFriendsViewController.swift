@@ -13,11 +13,14 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
     
     var friendsList: [User] = []
     
+    @IBOutlet weak var friendsHasBeenAddedLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        friendsHasBeenAddedLabel.text = ""
         API.search(forUsersWithName: searchBar.text!) { (result) in
             switch result {
             case .success(let friends):
@@ -29,11 +32,15 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    //todo maybe remove it from the observed list
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         API.add(friend: friendsList[indexPath.row])
         friendsList.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
+        friendsHasBeenAddedLabel.text = "Your friend's have been added."
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
