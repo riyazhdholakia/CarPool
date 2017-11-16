@@ -17,6 +17,8 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red: 33/255, green: 58/255, blue: 161/255, alpha: 1)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
