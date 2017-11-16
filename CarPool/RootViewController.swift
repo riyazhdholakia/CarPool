@@ -111,10 +111,37 @@ class RootViewController: UITableViewController {
             let dailySchedule = tripCalendar?.dailySchedule(forWeekdayOffsetFromToday: indexPath.section)
             let trip = dailySchedule?.trips[indexPath.row]
             cell.eventLabel.text = trip?.event.description
+//            if (trip?.repeats)! {
+//                cell.tintColor = UIColor.cyan
+//            }
+            
+            if trip?.dropOff?.driver.name == nil {
+                cell.thumbsImage.image = #imageLiteral(resourceName: "thumbsdownred")
+            } else if trip?.pickUp?.driver.name == nil {
+                cell.thumbsImage.image = #imageLiteral(resourceName: "thumbsdownred")
+            } else {
+                cell.thumbsImage.image = #imageLiteral(resourceName: "greenthumbsup")
+            }
         } else if allEventsOrMyEventsSegmentedControl.selectedSegmentIndex == 1 {
             cell.eventLabel.text = trips[indexPath.row].event.description
+            
+            if trips[indexPath.row].dropOff?.driver.name == nil {
+                cell.thumbsImage.image = #imageLiteral(resourceName: "thumbsdownred")
+            } else if trips[indexPath.row].pickUp?.driver.name == nil {
+                cell.thumbsImage.image = #imageLiteral(resourceName: "thumbsdownred")
+            } else {
+                cell.thumbsImage.image = #imageLiteral(resourceName: "greenthumbsup")
+            }
         } else {
             cell.eventLabel.text = trips[indexPath.row].event.description
+            
+            if trips[indexPath.row].dropOff?.driver.name == nil {
+                cell.thumbsImage.image = #imageLiteral(resourceName: "thumbsdownred")
+            } else if trips[indexPath.row].pickUp?.driver.name == nil {
+                cell.thumbsImage.image = #imageLiteral(resourceName: "thumbsdownred")
+            } else {
+                cell.thumbsImage.image = #imageLiteral(resourceName: "greenthumbsup")
+            }
         }
         return cell
     }
@@ -141,4 +168,5 @@ class RootViewController: UITableViewController {
 
 class RootVCEventsCell: UITableViewCell {
     @IBOutlet weak var eventLabel: UILabel!
+    @IBOutlet weak var thumbsImage: UIImageView!
 }
