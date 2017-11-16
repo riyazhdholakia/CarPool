@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //API.set(userFullName: "RI-ANA", for: <#Event#>)
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.white]
+        
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 
