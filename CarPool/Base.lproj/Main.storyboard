@@ -23,8 +23,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carpoolworld_car_500-2" id="L5H-0i-jRW">
-                            <rect key="frame" x="0.0" y="264" width="375" height="380"/>
+                        <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carpoolworld_car_500-2" id="L5H-0i-jRW">
+                            <rect key="frame" x="0.0" y="176" width="375" height="380"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <sections>
@@ -41,7 +41,7 @@
                                                     <rect key="frame" x="64" y="11" width="295" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-to-do-filled" translatesAutoresizingMaskIntoConstraints="NO" id="Jdn-VW-EZy">
@@ -49,7 +49,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.170268476" green="0.28139618039999997" blue="0.95552104709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.22989954253257505" green="0.50594853962785813" blue="1" alpha="0.69654323630136983" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.2298995425" green="0.50594853959999997" blue="1" alpha="0.69654323630000003" colorSpace="custom" customColorSpace="sRGB"/>
@@ -84,31 +84,8 @@
                                             <segue destination="USm-8K-re2" kind="show" id="dCc-ly-xev"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Calendar" id="4uD-sT-haW">
-                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4uD-sT-haW" id="rFS-zg-b5L">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8E-Pe-RhH">
-                                                    <rect key="frame" x="64" y="0.0" width="298" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-schedule-filled" translatesAutoresizingMaskIntoConstraints="NO" id="UnS-m5-7EL">
-                                                    <rect key="frame" x="10" y="5" width="30" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="tintColor" red="0.44905906699999998" green="0.55375029200000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Invite" id="Sk9-DK-bbf" userLabel="Logout">
-                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sk9-DK-bbf" id="iu6-Nf-VzJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -121,8 +98,8 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckF-gf-ka3">
                                                     <rect key="frame" x="68" y="11" width="291" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -130,30 +107,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Maps" id="8pM-Xk-Kcf">
-                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8pM-Xk-Kcf" id="aha-Ui-7gq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Open In Maps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01k-zs-KLJ">
-                                                    <rect key="frame" x="64" y="11" width="295" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-marker-filled" translatesAutoresizingMaskIntoConstraints="NO" id="OZ3-VE-WPp">
-                                                    <rect key="frame" x="10" y="5" width="30" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Logout" id="ee5-FR-VqJ">
-                                        <rect key="frame" x="0.0" y="220" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ee5-FR-VqJ" id="D1P-fh-6O6">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -189,7 +144,6 @@
                     <connections>
                         <outlet property="inviteLabel" destination="ckF-gf-ka3" id="G1f-if-cId"/>
                         <outlet property="logoutLabel" destination="HE9-KP-iec" id="87k-vn-587"/>
-                        <outlet property="maps" destination="8pM-Xk-Kcf" id="BhR-5U-xf3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eV8-G2-Hz2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -276,7 +230,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Schedule of Events" id="tMS-cw-Xc4">
-                        <barButtonItem key="leftBarButtonItem" image="burger_image_icon" style="plain" id="psq-eB-Qp0">
+                        <barButtonItem key="leftBarButtonItem" image="icons8-menu-50" style="plain" id="psq-eB-Qp0">
                             <inset key="imageInsets" minX="-29" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="landscapeImageInsets" minX="-21" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="largeContentSizeImageInsets" minX="-18" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -286,7 +240,7 @@
                                 <inset key="contentEdgeInsets" minX="-12" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="titleEdgeInsets" minX="-19" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="-55" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" image="burger4"/>
+                                <state key="normal" image="icons8-menu-50"/>
                                 <connections>
                                     <segue destination="XN6-Js-zn6" kind="presentation" id="8xt-Sd-VcX"/>
                                 </connections>
@@ -598,7 +552,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E17-vd-fii">
                                 <rect key="frame" x="111" y="269" width="152" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="See location on a map"/>
+                                <state key="normal" title="See location on a map">
+                                    <color key="titleColor" red="0.170268476" green="0.28139618039999997" blue="0.95552104709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="seeLocationOnAMapPressed:" destination="tnw-54-FYd" eventType="touchUpInside" id="Y8D-Mv-wFG"/>
                                     <segue destination="oQ2-u8-HQ1" kind="show" id="xEo-1e-jsk"/>
@@ -872,12 +828,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="medium_carpool_5" translatesAutoresizingMaskIntoConstraints="NO" id="58h-mU-Zey">
-                                <rect key="frame" x="264" y="580" width="111" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.81159417759999997" green="0.88757499760000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="kuo-4w-Lid" secondAttribute="trailing" constant="8" id="71H-cZ-3fK"/>
                             <constraint firstItem="kuo-4w-Lid" firstAttribute="leading" secondItem="mCF-yp-T3Y" secondAttribute="leadingMargin" constant="8" id="Zw2-c5-mb9"/>
@@ -920,16 +872,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="burger4" width="32" height="32"/>
-        <image name="burger_image_icon" width="32" height="32"/>
         <image name="carpoolworld_car_500-2" width="250" height="149"/>
         <image name="icons8-group-filled" width="25" height="25"/>
-        <image name="icons8-marker-filled" width="25" height="25"/>
+        <image name="icons8-menu-50" width="50" height="50"/>
         <image name="icons8-read-message" width="50" height="50"/>
-        <image name="icons8-schedule-filled" width="25" height="25"/>
         <image name="icons8-services-filled" width="25" height="25"/>
         <image name="icons8-to-do-filled" width="25" height="25"/>
-        <image name="medium_carpool_5" width="120" height="90"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8xt-Sd-VcX"/>

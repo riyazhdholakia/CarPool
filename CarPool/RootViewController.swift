@@ -19,6 +19,7 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.barTintColor = UIColor.blue
         
         API.observeMyTripCalendar(sender: self) { (result) in
             switch result {

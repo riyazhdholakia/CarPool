@@ -12,6 +12,7 @@ import CarpoolKit
 class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+                 navigationController?.navigationBar.barTintColor = UIColor.blue
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -20,6 +20,7 @@ class MapViewController: UIViewController, UISearchControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+                 navigationController?.navigationBar.barTintColor = UIColor.blue
     }
     
     override func viewDidAppear(_ animated: Bool) {
