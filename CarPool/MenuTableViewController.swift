@@ -37,6 +37,27 @@ class MenuTableViewController: UITableViewController, MFMessageComposeViewContro
     }
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        switch (result) {
+            
+//        case MessageComposeResultCancelled.rawValue:
+//            print("Message was cancelled")
+//            self.dismiss(animated: true, completion: nil)
+//        case MessageComposeResultFailed.rawValue:
+//            print("Message failed")
+//            self.dismiss(animated: true, completion: nil)
+//        case MessageComposeResultSent.rawValue:
+//            print("Message was sent")
+//            self.dismiss(animated: true, completion: nil)
+//        default:
+//            break;
+        case .cancelled:
+            print("Message was cancelled")
+        case .sent:
+            print("Message was sent")
+        case .failed:
+            print("Message failed")
+        }
         controller.dismiss(animated: true, completion: nil)
     }
     
@@ -52,6 +73,7 @@ class MenuTableViewController: UITableViewController, MFMessageComposeViewContro
             } else {
                 //handle text messaging not available
             }
+            
         }
         else if indexPath.section == 0 && indexPath.row == 4 {
             let latitude: CLLocationDegrees = 37.2
