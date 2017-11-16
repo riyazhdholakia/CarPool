@@ -16,7 +16,7 @@ class TripsDetailViewController: UIViewController {
     
     @IBOutlet weak var pickUpDriverNameLabel: UILabel!
     @IBOutlet weak var dropOffDriverNameLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var eventLabel: UILabel!
     @IBOutlet weak var dateForEventLabel: UILabel!
     @IBOutlet weak var claimDropoffButton: UIButton!
     @IBOutlet weak var claimPickupButton: UIButton!
@@ -25,7 +25,7 @@ class TripsDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = trip.event.description
+        //title = trip.event.description
         
         API.observe(trip: trip, sender: self) { (result) in
             switch result {
@@ -67,9 +67,9 @@ class TripsDetailViewController: UIViewController {
         formatterTime.dateFormat = "h:mm a"
         pickUpDriverNameLabel.text = "Pick up driver name: " + (trip.pickUp?.driver.name ?? "Unclaimed")
         dropOffDriverNameLabel.text = "Drop off driver name: " + (trip.dropOff?.driver.name ?? "Unclaimed")
-        dateForEventLabel.text = "Date/time: " + formatter.string(from: trip.event.time)
+        dateForEventLabel.text = "Date: " + formatter.string(from: trip.event.time)
         timeLabel.text = "Time: " + formatterTime.string(from: trip.event.time)
-        //locationLabel.text = trip.event.clLocation.
+        eventLabel.text = "Event: " + trip.event.description
         
         if trip.dropOff?.driver.name == nil {
             claimDropoffButton.backgroundColor = UIColor.red
@@ -82,18 +82,6 @@ class TripsDetailViewController: UIViewController {
         } else {
             claimPickupButton.backgroundColor = UIColor.white
         }
-        
-//        if pickUpDriverNameLabel.text == "Pick up driver name: Unclaimed" {
-//            claimPickupButton.backgroundColor = UIColor.red
-//        } else {
-//            claimPickupButton.backgroundColor = UIColor.white
-//        }
-//
-//        if dropOffDriverNameLabel.text == "Drop off driver name: Unclaimed" {
-//            claimDropoffButton.backgroundColor = UIColor.red
-//        } else {
-//            claimDropoffButton.backgroundColor = UIColor.white
-//        }
     }
     
     @IBAction func onPickupClaimPressed(_ sender: UIButton) {

@@ -197,8 +197,14 @@ public extension API {
                 throw Error.anonymousUsersCannotCreateTrips
             }
 
-            guard let geohash = (location.flatMap{ Geohash(location: $0) })?.value else {
-                throw Error.locationInvalid
+            let geohash: String?
+            if let location = location {
+                geohash = Geohash(location: location).value
+                guard geohash != "s0000000" else {
+                    throw Error.nullIslandIsNotAGoodPlaceForChildren
+                }
+            } else {
+                geohash = nil
             }
 
             var eventDict: [String: Any] = [
@@ -220,7 +226,7 @@ public extension API {
             eventDict2["trips"] = [tripRef.key: true]
             eventRef.setValue(eventDict2)
 
-            let event = Event(key: eventRef.key, description: desc, owner: user, time: time, endTime: nil, location: geohash)
+            let event = Event(key: eventRef.key, description: desc, owner: user, time: time, endTime: nil, geohash: geohash)
             return Trip(key: tripRef.key, event: event, dropOff: Leg(driver: user), pickUp: nil, _children: [], comments: [], repeats: false)
         }
     }

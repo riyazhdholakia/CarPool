@@ -25,6 +25,7 @@ class RootViewController: UITableViewController {
             switch result {
             case .success(let trip):
                 self.tripCalendar = trip
+                print("My trips" , trip)
 //                API.mark(trip: trips, repeating: true)
             case .failure(let error):
                 print(error)
