@@ -100,7 +100,22 @@ class CreateTripViewController: UIViewController {
                 let longitude = selectedMapItem.coordinate.longitude
                 let location = CLLocation(latitude: latitude, longitude: longitude)
                 
-                API.createTrip(eventDescription: nameOfEventTextField.text!, eventTime: datePicker.date, eventLocation: location) { (result) in
+                let formatter = DateFormatter()
+                formatter.dateFormat = "EEEE"
+                let formatterTime = DateFormatter()
+                formatterTime.dateFormat = "h:mm a"
+                
+                var prettyStringForEvent = "On "
+                prettyStringForEvent += formatter.string(from: datePicker.date)
+                prettyStringForEvent += ", "
+                prettyStringForEvent += nameOfEventTextField.text!
+                prettyStringForEvent += " from "
+                prettyStringForEvent += selectedMapItem.name!
+                prettyStringForEvent += " by "
+                prettyStringForEvent += formatterTime.string(from: datePicker.date)
+                prettyStringForEvent += "."
+                
+                API.createTrip(eventDescription: prettyStringForEvent, eventTime: datePicker.date, eventLocation: location) { (result) in
                     print(result)
                     
                     switch result {
