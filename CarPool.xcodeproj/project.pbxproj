@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2101C1599E623291B3BCA905 /* Pods_CarPool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 806E0B671A03C302E24F4C30 /* Pods_CarPool.framework */; };
 		2F0841281FB0FFAC00EFDB65 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0841271FB0FFAC00EFDB65 /* CreateTripViewController.swift */; };
 		2F2721801FB0E77800747B8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F27217F1FB0E77800747B8E /* AppDelegate.swift */; };
 		2F2721821FB0E77800747B8E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2721811FB0E77800747B8E /* RootViewController.swift */; };
@@ -16,7 +17,6 @@
 		2F2721921FB0F03E00747B8E /* TripsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2721911FB0F03E00747B8E /* TripsDetailViewController.swift */; };
 		2F35A7601FBB573700F4E2D6 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F35A75F1FBB573700F4E2D6 /* SearchFriendsViewController.swift */; };
 		2FA90EF41FBB95720018E006 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA90EF31FBB95720018E006 /* MenuTableViewController.swift */; };
-		3C1D0B6CCDA16C5D2520D5E1 /* Pods_CarPool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98B0B0ACB9450520F7801779 /* Pods_CarPool.framework */; };
 		AB273C261FB6173D004A92B0 /* RootSideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB273C251FB6173D004A92B0 /* RootSideMenuController.swift */; };
 		AB273C501FB9EDBF004A92B0 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB273C4F1FB9EDBF004A92B0 /* FriendsViewController.swift */; };
 		AB5154B61FB4B6A9005E3DE9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B51FB4B6A9005E3DE9 /* LoginViewController.swift */; };
@@ -40,9 +40,7 @@
 		2F2721911FB0F03E00747B8E /* TripsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsDetailViewController.swift; sourceTree = "<group>"; };
 		2F35A75F1FBB573700F4E2D6 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		2FA90EF31FBB95720018E006 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
-		4114D736291A9DE7872464B7 /* Pods-CarPool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.release.xcconfig"; sourceTree = "<group>"; };
-		98B0B0ACB9450520F7801779 /* Pods_CarPool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarPool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F8E471BD4877CD44B97F78E /* Pods-CarPool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.debug.xcconfig"; sourceTree = "<group>"; };
+		806E0B671A03C302E24F4C30 /* Pods_CarPool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarPool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB273C251FB6173D004A92B0 /* RootSideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSideMenuController.swift; sourceTree = "<group>"; };
 		AB273C4F1FB9EDBF004A92B0 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		AB3A57061FBCD35F00A8C1F2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -53,6 +51,8 @@
 		ABCADDAA1FB36AEF00DA2699 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		ABCADDAC1FB390BE00DA2699 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		ABCE17431FB24FBC002C4044 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B5223C6EA24D99C49B2E0B45 /* Pods-CarPool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.release.xcconfig"; sourceTree = "<group>"; };
+		E376859EDF7F0D5094714D32 /* Pods-CarPool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarPool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarPool/Pods-CarPool.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C1D0B6CCDA16C5D2520D5E1 /* Pods_CarPool.framework in Frameworks */,
+				2101C1599E623291B3BCA905 /* Pods_CarPool.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,8 +72,8 @@
 			children = (
 				2F27217E1FB0E77800747B8E /* CarPool */,
 				2F27217D1FB0E77800747B8E /* Products */,
-				F589477D84E179568898C7B8 /* Pods */,
 				40B6C94220DDAFB61B925E7F /* Frameworks */,
+				C6FF7C35FE105B546D057773 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,16 +115,16 @@
 			isa = PBXGroup;
 			children = (
 				AB3A57061FBCD35F00A8C1F2 /* MessageUI.framework */,
-				98B0B0ACB9450520F7801779 /* Pods_CarPool.framework */,
+				806E0B671A03C302E24F4C30 /* Pods_CarPool.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F589477D84E179568898C7B8 /* Pods */ = {
+		C6FF7C35FE105B546D057773 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9F8E471BD4877CD44B97F78E /* Pods-CarPool.debug.xcconfig */,
-				4114D736291A9DE7872464B7 /* Pods-CarPool.release.xcconfig */,
+				E376859EDF7F0D5094714D32 /* Pods-CarPool.debug.xcconfig */,
+				B5223C6EA24D99C49B2E0B45 /* Pods-CarPool.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -136,12 +136,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F27218E1FB0E77800747B8E /* Build configuration list for PBXNativeTarget "CarPool" */;
 			buildPhases = (
-				4EB6AA327D7088185274469C /* [CP] Check Pods Manifest.lock */,
+				E47BFEF338C12EB6F5AC0DDA /* [CP] Check Pods Manifest.lock */,
 				2F2721781FB0E77800747B8E /* Sources */,
 				2F2721791FB0E77800747B8E /* Frameworks */,
 				2F27217A1FB0E77800747B8E /* Resources */,
-				FDB1FF844D96894565E3A03F /* [CP] Embed Pods Frameworks */,
-				A0B0A5B263325980E1F99323 /* [CP] Copy Pods Resources */,
+				7D7EA63268F020082909100D /* [CP] Embed Pods Frameworks */,
+				A7E580E61F772975E3813FA6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -201,40 +201,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4EB6AA327D7088185274469C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CarPool-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A0B0A5B263325980E1F99323 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarPool/Pods-CarPool-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FDB1FF844D96894565E3A03F /* [CP] Embed Pods Frameworks */ = {
+		7D7EA63268F020082909100D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -264,6 +231,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarPool/Pods-CarPool-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7E580E61F772975E3813FA6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarPool/Pods-CarPool-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E47BFEF338C12EB6F5AC0DDA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CarPool-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -421,15 +421,16 @@
 		};
 		2F27218F1FB0E77800747B8E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F8E471BD4877CD44B97F78E /* Pods-CarPool.debug.xcconfig */;
+			baseConfigurationReference = E376859EDF7F0D5094714D32 /* Pods-CarPool.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P7L7L58P37;
+				DEVELOPMENT_TEAM = MXQ6G6636B;
 				INFOPLIST_FILE = CarPool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.riyazhdholakia.CarPool;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.riyazhdholakia.CarPool2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -437,15 +438,16 @@
 		};
 		2F2721901FB0E77800747B8E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4114D736291A9DE7872464B7 /* Pods-CarPool.release.xcconfig */;
+			baseConfigurationReference = B5223C6EA24D99C49B2E0B45 /* Pods-CarPool.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P7L7L58P37;
+				DEVELOPMENT_TEAM = MXQ6G6636B;
 				INFOPLIST_FILE = CarPool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.riyazhdholakia.CarPool;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.riyazhdholakia.CarPool2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

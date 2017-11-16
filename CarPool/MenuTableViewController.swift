@@ -16,14 +16,14 @@ class MenuTableViewController: UITableViewController, MFMessageComposeViewContro
     @IBOutlet weak var inviteLabel: UILabel!
     @IBOutlet weak var logoutLabel: UILabel!
     
-    let messageController = MFMessageComposeViewController()
+//    let messageController = MFMessageComposeViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationBar.barTintColor = UIColor(red: 33/255, green: 58/255, blue: 161/255, alpha: 1)
         
-        messageController.messageComposeDelegate = self
+//        messageController.messageComposeDelegate = self
         
         API.fetchCurrentUser { (result) in
             switch result {
