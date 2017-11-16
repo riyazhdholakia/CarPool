@@ -15,7 +15,7 @@ class RootNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                 navigationController?.navigationBar.barTintColor = UIColor.blue
+        navigationController?.navigationBar.barTintColor = UIColor(red: 33/255, green: 58/255, blue: 161/255, alpha: 1)
         if API.isCurrentUserAnonymous == false {
             NotificationCenter.default.addObserver(forName: logMeinNotification, object: nil, queue: .main) { (_) in
                 let loginVC = self.presentedViewController as? LoginViewController

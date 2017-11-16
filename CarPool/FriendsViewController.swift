@@ -17,6 +17,8 @@ class FriendsViewController: UITableViewController {
         super.viewDidLoad()
         
         myFriendsShown()
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red: 33/255, green: 58/255, blue: 161/255, alpha: 1)
     }
     
     func myFriendsShown() {
