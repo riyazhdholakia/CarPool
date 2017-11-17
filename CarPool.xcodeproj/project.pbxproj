@@ -22,7 +22,6 @@
 		AB5154B61FB4B6A9005E3DE9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B51FB4B6A9005E3DE9 /* LoginViewController.swift */; };
 		AB5154B81FB4C169005E3DE9 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B71FB4C169005E3DE9 /* RootNavigationController.swift */; };
 		AB5154BA1FB4EE61005E3DE9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B91FB4EE61005E3DE9 /* SettingsTableViewController.swift */; };
-		AB529CE11FBCC55B00A9E811 /* MFMessageComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB529CE01FBCC55B00A9E811 /* MFMessageComposeViewController.swift */; };
 		ABCADDAB1FB36AEF00DA2699 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCADDAA1FB36AEF00DA2699 /* LocationsTableViewController.swift */; };
 		ABCADDAD1FB390BE00DA2699 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCADDAC1FB390BE00DA2699 /* MapViewController.swift */; };
 		ABCE17441FB24FBC002C4044 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABCE17431FB24FBC002C4044 /* GoogleService-Info.plist */; };
@@ -47,7 +46,6 @@
 		AB5154B51FB4B6A9005E3DE9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AB5154B71FB4C169005E3DE9 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		AB5154B91FB4EE61005E3DE9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		AB529CE01FBCC55B00A9E811 /* MFMessageComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFMessageComposeViewController.swift; sourceTree = "<group>"; };
 		ABCADDAA1FB36AEF00DA2699 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		ABCADDAC1FB390BE00DA2699 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		ABCE17431FB24FBC002C4044 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 				AB5154B91FB4EE61005E3DE9 /* SettingsTableViewController.swift */,
 				ABCADDAA1FB36AEF00DA2699 /* LocationsTableViewController.swift */,
 				2F0841271FB0FFAC00EFDB65 /* CreateTripViewController.swift */,
-				AB529CE01FBCC55B00A9E811 /* MFMessageComposeViewController.swift */,
 				AB273C4F1FB9EDBF004A92B0 /* FriendsViewController.swift */,
 				2F35A75F1FBB573700F4E2D6 /* SearchFriendsViewController.swift */,
 				2F2721861FB0E77800747B8E /* Assets.xcassets */,
@@ -275,7 +272,6 @@
 			files = (
 				2F35A7601FBB573700F4E2D6 /* SearchFriendsViewController.swift in Sources */,
 				AB5154B61FB4B6A9005E3DE9 /* LoginViewController.swift in Sources */,
-				AB529CE11FBCC55B00A9E811 /* MFMessageComposeViewController.swift in Sources */,
 				2FA90EF41FBB95720018E006 /* MenuTableViewController.swift in Sources */,
 				AB5154B81FB4C169005E3DE9 /* RootNavigationController.swift in Sources */,
 				ABCADDAB1FB36AEF00DA2699 /* LocationsTableViewController.swift in Sources */,

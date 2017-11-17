@@ -18,8 +18,16 @@ class FriendsViewController: UITableViewController {
         
         myFriendsShown()
         
-        navigationController?.navigationBar.barTintColor = UIColor(red: 33/255, green: 58/255, blue: 161/255, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 31/255, green: 39/255, blue: 144/255, alpha: 1)
     }
+    
+        override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+            if(indexPath.row % 2 == 0) {
+                cell.backgroundColor = UIColor.gray
+            } else {
+                cell.backgroundColor = UIColor(red: 31/255, green: 39/255, blue: 144/255, alpha: 1)
+            }
+        }
     
     func myFriendsShown() {
         API.observeFriends(sender: self) { (result) in
