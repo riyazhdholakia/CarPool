@@ -37,9 +37,9 @@ class LocationsTableViewController: UITableViewController {
         if(indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.gray
         } else {
-            cell.backgroundColor = UIColor(red: 31/255, green: 39/255, blue: 144/255, alpha: 1)
-            cell.textLabel?.textColor = UIColor.white
-            cell.detailTextLabel?.textColor = UIColor.white
+            cell.backgroundColor = UIColor.white
+            cell.textLabel?.textColor = UIColor.black
+            cell.detailTextLabel?.textColor = UIColor.black
         }
     }
     

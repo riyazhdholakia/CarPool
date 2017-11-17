@@ -26,8 +26,8 @@ class FriendsViewController: UITableViewController {
                 cell.backgroundColor = UIColor.gray
                 cell.textLabel?.textColor = UIColor.black
             } else {
-                cell.backgroundColor = UIColor(red: 31/255, green: 39/255, blue: 144/255, alpha: 1)
-                cell.textLabel?.textColor = UIColor.white
+                cell.backgroundColor = UIColor.white
+                cell.textLabel?.textColor = UIColor.black
             }
         }
     
@@ -55,7 +55,9 @@ class FriendsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyFriends", for: indexPath)
-        cell.textLabel?.text = myFriends[indexPath.row].name
+//        var numbers = myFriends
+//        (append(String(myFriends.count + 1) + ". "))
+        cell.textLabel?.text = myFriends[indexPath.row].name!
         return cell
     }
     

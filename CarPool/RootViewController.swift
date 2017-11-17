@@ -25,6 +25,7 @@ class RootViewController: UITableViewController {
             switch result {
             case .success(let trip):
                 self.tripCalendar = trip
+                self.tableView.reloadData()
             case .failure(let error):
                 print(error)
             }

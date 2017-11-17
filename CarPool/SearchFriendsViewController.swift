@@ -26,8 +26,8 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
             cell.backgroundColor = UIColor.gray
             cell.textLabel?.textColor = UIColor.black
         } else {
-            cell.backgroundColor = UIColor(red: 31/255, green: 39/255, blue: 144/255, alpha: 1)
-            cell.textLabel?.textColor = UIColor.white
+            cell.backgroundColor = UIColor.white
+            cell.textLabel?.textColor = UIColor.black
         }
     }
     
