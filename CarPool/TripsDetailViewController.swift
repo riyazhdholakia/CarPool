@@ -21,12 +21,15 @@ class TripsDetailViewController: UIViewController {
     @IBOutlet weak var claimDropoffButton: UIButton!
     @IBOutlet weak var claimPickupButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var seeLocationOnAMapButton: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        commentButton.layer.cornerRadius = 15
         //title = trip.event.description
-        
+        seeLocationOnAMapButton.layer.cornerRadius = 15
         API.observe(trip: trip, sender: self) { (result) in
             switch result {
             case .success(let trip):
@@ -123,6 +126,15 @@ class TripsDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         showTripDetails()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let mapVC = segue.destination as? MapViewController {
+            mapVC.trip = trip
+        }
+        if let commentsVC = segue.destination as? CommentsTableViewController {
+            commentsVC.trip = trip
+        }
     }
     
 }

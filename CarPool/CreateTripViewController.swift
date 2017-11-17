@@ -14,7 +14,7 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var nameOfEventTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var childrenTextField: UITextField!
-    @IBOutlet weak var seeLocationOnAMapButton: UIButton!
+    @IBOutlet weak var commentsForTripTextView: UITextView!
     @IBOutlet weak var locationEnteredTextField: UITextField!
     @IBOutlet weak var dropoffOrPickupSegmentedControll: UISegmentedControl!
     @IBOutlet weak var congratsLabel: UILabel!
@@ -28,7 +28,6 @@ class CreateTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        seeLocationOnAMapButton.layer.cornerRadius = 15
         
         congratsLabel.text = "Fill out the above details."
         
@@ -83,6 +82,7 @@ class CreateTripViewController: UIViewController {
         datePicker.date = Date()
         childrenTextField.text = ""
         locationEnteredTextField.text = ""
+        commentsForTripTextView.text = ""
     }
     
     @IBAction func seeLocationOnAMapPressed(_ sender: UIButton) {
@@ -126,6 +126,7 @@ class CreateTripViewController: UIViewController {
                     
                     switch result {
                     case .success(let createTrip):
+                        API.add(comment: self.commentsForTripTextView.text, to: createTrip)
                         API.addChild(name: self.childrenTextField.text!, completion: { (result) in
                             switch result {
                             case .success(let child):
@@ -154,9 +155,6 @@ class CreateTripViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let locationsTableVC = segue.destination as? LocationsTableViewController {
             locationsTableVC.mapItems = mapItems
-        }
-        if let mapVC = segue.destination as? MapViewController {
-            mapVC.selectedMapItem = selectedMapItem
         }
     }
     

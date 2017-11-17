@@ -17,6 +17,7 @@
 		2F2721921FB0F03E00747B8E /* TripsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2721911FB0F03E00747B8E /* TripsDetailViewController.swift */; };
 		2F35A7601FBB573700F4E2D6 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F35A75F1FBB573700F4E2D6 /* SearchFriendsViewController.swift */; };
 		2FA90EF41FBB95720018E006 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA90EF31FBB95720018E006 /* MenuTableViewController.swift */; };
+		2FD2203F1FBF752A001CF6AF /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2203E1FBF752A001CF6AF /* CommentsTableViewController.swift */; };
 		AB273C261FB6173D004A92B0 /* RootSideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB273C251FB6173D004A92B0 /* RootSideMenuController.swift */; };
 		AB273C501FB9EDBF004A92B0 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB273C4F1FB9EDBF004A92B0 /* FriendsViewController.swift */; };
 		AB5154B61FB4B6A9005E3DE9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5154B51FB4B6A9005E3DE9 /* LoginViewController.swift */; };
@@ -39,6 +40,7 @@
 		2F2721911FB0F03E00747B8E /* TripsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsDetailViewController.swift; sourceTree = "<group>"; };
 		2F35A75F1FBB573700F4E2D6 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		2FA90EF31FBB95720018E006 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		2FD2203E1FBF752A001CF6AF /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		806E0B671A03C302E24F4C30 /* Pods_CarPool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarPool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB273C251FB6173D004A92B0 /* RootSideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSideMenuController.swift; sourceTree = "<group>"; };
 		AB273C4F1FB9EDBF004A92B0 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				2F2721811FB0E77800747B8E /* RootViewController.swift */,
+				2FD2203E1FBF752A001CF6AF /* CommentsTableViewController.swift */,
 				2F2721911FB0F03E00747B8E /* TripsDetailViewController.swift */,
 				2F2721831FB0E77800747B8E /* Main.storyboard */,
 				2FA90EF31FBB95720018E006 /* MenuTableViewController.swift */,
@@ -277,6 +280,7 @@
 				ABCADDAB1FB36AEF00DA2699 /* LocationsTableViewController.swift in Sources */,
 				ABCADDAD1FB390BE00DA2699 /* MapViewController.swift in Sources */,
 				2F2721921FB0F03E00747B8E /* TripsDetailViewController.swift in Sources */,
+				2FD2203F1FBF752A001CF6AF /* CommentsTableViewController.swift in Sources */,
 				2F2721821FB0E77800747B8E /* RootViewController.swift in Sources */,
 				2F2721801FB0E77800747B8E /* AppDelegate.swift in Sources */,
 				AB273C261FB6173D004A92B0 /* RootSideMenuController.swift in Sources */,

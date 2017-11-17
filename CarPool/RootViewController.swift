@@ -128,12 +128,6 @@ class RootViewController: UITableViewController {
             let trip = dailySchedule?.trips[indexPath.row]
             cell.eventLabel.text = trip?.event.description
             
-            API.mark(trip: trip!, repeating: true)
-
-            if (trip?.repeats)! {
-                cell.tintColor = UIColor.cyan
-            }
-            
             if trip?.dropOff?.driver.name == nil {
                 cell.thumbsImage.image = #imageLiteral(resourceName: "thumbsdownred")
             } else if trip?.pickUp?.driver.name == nil {
@@ -145,12 +139,6 @@ class RootViewController: UITableViewController {
         } else if allEventsOrMyEventsSegmentedControl.selectedSegmentIndex == 1 {
             cell.eventLabel.text = trips[indexPath.row].event.description
             
-            API.mark(trip: trips[indexPath.row], repeating: true)
-            
-            if (trips[indexPath.row].repeats) {
-                cell.tintColor = UIColor.cyan
-            }
-            
             if trips[indexPath.row].dropOff?.driver.name == nil {
                 cell.thumbsImage.image = #imageLiteral(resourceName: "thumbsdownred")
             } else if trips[indexPath.row].pickUp?.driver.name == nil {
@@ -160,12 +148,6 @@ class RootViewController: UITableViewController {
             }
         } else {
             cell.eventLabel.text = trips[indexPath.row].event.description
-            
-            API.mark(trip: trips[indexPath.row], repeating: true)
-            
-            if (trips[indexPath.row].repeats) {
-                cell.tintColor = UIColor.cyan
-            }
             
             if trips[indexPath.row].dropOff?.driver.name == nil {
                 cell.thumbsImage.image = #imageLiteral(resourceName: "thumbsdownred")
