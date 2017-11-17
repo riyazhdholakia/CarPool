@@ -20,11 +20,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         confirmPasswordTextField.isHidden = true
-        fullNameTextField.isHidden = true
-        
-        
+        fullNameTextField.isHidden = true  
         fullNameTextField.layer.cornerRadius = 15
         confirmPasswordTextField.layer.cornerRadius = 15
         loginSignupButton.layer.cornerRadius = 15
@@ -46,6 +43,18 @@ class LoginViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        self.view.endEditing(true)
+//        return false
+//    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
     
     @IBAction func loginSignupPressed(_ sender: UIButton) {
