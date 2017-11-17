@@ -530,35 +530,6 @@
             </objects>
             <point key="canvasLocation" x="-191.19999999999999" y="821.73913043478262"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="qeQ-GT-Hwg">
-            <objects>
-                <viewController id="Aqe-tW-eLF" customClass="ViewController" customModule="CarPool" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Lpi-VQ-Rb2"/>
-                        <viewControllerLayoutGuide type="bottom" id="zeD-9T-qcT"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qd0-Xc-s6E">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3wv-sa-Pc2">
-                                <rect key="frame" x="0.0" y="8" width="375" height="307"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="3wv-sa-Pc2" firstAttribute="leading" secondItem="qd0-Xc-s6E" secondAttribute="leading" id="3Pi-4R-GSL"/>
-                            <constraint firstItem="zeD-9T-qcT" firstAttribute="top" secondItem="3wv-sa-Pc2" secondAttribute="bottom" constant="352" id="Cza-Uo-Cbg"/>
-                            <constraint firstItem="3wv-sa-Pc2" firstAttribute="top" secondItem="qd0-Xc-s6E" secondAttribute="top" constant="8" id="RFk-91-1x6"/>
-                            <constraint firstAttribute="trailing" secondItem="3wv-sa-Pc2" secondAttribute="trailing" id="SBH-F3-qve"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YPI-u6-t0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="164" y="1913.793103448276"/>
-        </scene>
         <!--Create an Event-->
         <scene sceneID="d5b-Wg-jAF">
             <objects>
