@@ -80,6 +80,6 @@ class LoginViewController: UIViewController {
             }
         }
 //        let loginVC = self.presentedViewController as? LoginViewController
-        //dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
