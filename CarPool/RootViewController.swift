@@ -19,14 +19,12 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.barTintColor = UIColor(red: 33/255, green: 58/255, blue: 161/255, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 31/255, green: 39/255, blue: 144/255, alpha: 1)
         
         API.observeMyTripCalendar(sender: self) { (result) in
             switch result {
             case .success(let trip):
                 self.tripCalendar = trip
-                print("My trips" , trip)
-//                API.mark(trip: trips, repeating: true)
             case .failure(let error):
                 print(error)
             }
@@ -43,6 +41,14 @@ class RootViewController: UITableViewController {
             }
         })
     }
+    
+//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if(indexPath.row % 2 == 0) {
+//            cell.backgroundColor = UIColor.cyan
+//        } else {
+//            cell.backgroundColor = UIColor.white
+//        }
+//    }
     
     @IBAction func onEventsSegmentedControllPressed(_ sender: UISegmentedControl) {
         switch allEventsOrMyEventsSegmentedControl.selectedSegmentIndex {
@@ -113,9 +119,12 @@ class RootViewController: UITableViewController {
             let dailySchedule = tripCalendar?.dailySchedule(forWeekdayOffsetFromToday: indexPath.section)
             let trip = dailySchedule?.trips[indexPath.row]
             cell.eventLabel.text = trip?.event.description
-//            if (trip?.repeats)! {
-//                cell.tintColor = UIColor.cyan
-//            }
+            
+            API.mark(trip: trip!, repeating: true)
+            
+            if (trip?.repeats)! {
+                cell.tintColor = UIColor.cyan
+            }
             
             if trip?.dropOff?.driver.name == nil {
                 cell.thumbsImage.image = #imageLiteral(resourceName: "thumbsdownred")
@@ -124,8 +133,15 @@ class RootViewController: UITableViewController {
             } else {
                 cell.thumbsImage.image = #imageLiteral(resourceName: "greenthumbsup")
             }
+            
         } else if allEventsOrMyEventsSegmentedControl.selectedSegmentIndex == 1 {
             cell.eventLabel.text = trips[indexPath.row].event.description
+            
+            API.mark(trip: trips[indexPath.row], repeating: true)
+            
+            if (trips[indexPath.row].repeats) {
+                cell.tintColor = UIColor.cyan
+            }
             
             if trips[indexPath.row].dropOff?.driver.name == nil {
                 cell.thumbsImage.image = #imageLiteral(resourceName: "thumbsdownred")
@@ -136,6 +152,12 @@ class RootViewController: UITableViewController {
             }
         } else {
             cell.eventLabel.text = trips[indexPath.row].event.description
+            
+            API.mark(trip: trips[indexPath.row], repeating: true)
+            
+            if (trips[indexPath.row].repeats) {
+                cell.tintColor = UIColor.cyan
+            }
             
             if trips[indexPath.row].dropOff?.driver.name == nil {
                 cell.thumbsImage.image = #imageLiteral(resourceName: "thumbsdownred")
