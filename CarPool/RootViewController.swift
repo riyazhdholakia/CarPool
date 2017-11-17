@@ -42,13 +42,20 @@ class RootViewController: UITableViewController {
         })
     }
     
-//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if(indexPath.row % 2 == 0) {
-//            cell.backgroundColor = UIColor.cyan
-//        } else {
-//            cell.backgroundColor = UIColor.white
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+        header.backgroundView?.backgroundColor = UIColor.black
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+        if(indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor.lightGray
+        } else {
+            cell.backgroundColor = UIColor.white
+        }
+    }
     
     @IBAction func onEventsSegmentedControllPressed(_ sender: UISegmentedControl) {
         switch allEventsOrMyEventsSegmentedControl.selectedSegmentIndex {
@@ -121,7 +128,7 @@ class RootViewController: UITableViewController {
             cell.eventLabel.text = trip?.event.description
             
             API.mark(trip: trip!, repeating: true)
-            
+
             if (trip?.repeats)! {
                 cell.tintColor = UIColor.cyan
             }

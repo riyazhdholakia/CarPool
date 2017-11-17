@@ -24,9 +24,17 @@ class SearchFriendsViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if(indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.gray
+            cell.textLabel?.textColor = UIColor.black
         } else {
             cell.backgroundColor = UIColor(red: 31/255, green: 39/255, blue: 144/255, alpha: 1)
+            cell.textLabel?.textColor = UIColor.white
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+        header.backgroundView?.backgroundColor = UIColor.black
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
