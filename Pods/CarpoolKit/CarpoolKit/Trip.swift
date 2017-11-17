@@ -382,16 +382,8 @@ extension Trip {
 
         var cc1 = Calendar.current.dateComponents(in: .current, from: low)
         var cc2 = Calendar.current.dateComponents(in: .current, from: event.time)
-        cc2.month = cc1.month
-        cc2.weekday = cc1.weekday
-        cc2.day = nil
-        cc2.weekOfMonth = cc1.weekOfMonth
 
-        guard let modifiedEventDate = cc2.date else {
-            print("TELL MAX TO FIX HIS SHIT. TO GET ALL HIS SHIT TOGETHER. TO ASSEMBLE ALL HIS SHIT TOGETHER AND TO FIX IT")
-            return false
-        }
-        return modifiedEventDate >= low && modifiedEventDate <= high
+        return cc1.weekday == cc2.weekday && cc1.weekday != nil
     }
 }
 

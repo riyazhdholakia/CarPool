@@ -25,7 +25,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
   - GTMSessionFetcher/Core (1.1.12)
-  - JTAppleCalendar (7.1.3)
+  - JTAppleCalendar (7.1.4)
   - leveldb-library (1.20)
   - PromiseKit (4.5.0):
     - PromiseKit/Foundation (= 4.5.0)
@@ -52,7 +52,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CarpoolKit:
-    :commit: 06631fecd9167c32590c47db5f32a536cd7a7e1a
+    :commit: ecb1bda65fe94c3f833981f59a486c8305b726ac
     :git: https://github.com/codebasesav/CarpoolKit.git
 
 SPEC CHECKSUMS:
@@ -60,7 +60,7 @@ SPEC CHECKSUMS:
   FirebaseCommunity: 1f9a0e48654316b4ffe4c830db0ce72b9e2d2c9d
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
-  JTAppleCalendar: df26e97d7ba5b42c8a5ad4eabdccb4843878d40e
+  JTAppleCalendar: aaeee95e939e0b0a381fb51eb77738bd26bb10f6
   leveldb-library: 4f9eedf84ab46b4fa3b7893bf30714b2a1a74022
   PromiseKit: 9c1d9f6d7b65e3951a90bea7f407c56972be5d8e
   SideMenu: 99021e70b3f2eee65b5dd88e4274d09031b1221e
