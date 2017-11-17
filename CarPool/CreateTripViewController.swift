@@ -28,7 +28,12 @@ class CreateTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        seeLocationOnAMapButton.layer.cornerRadius = 15
         
+        congratsLabel.text = "Fill out the above details."
+        
+        datePicker.backgroundColor = UIColor(red: 31/255, green: 39/255, blue: 144/255, alpha: 1)
+        datePicker.setValue(UIColor.white, forKey: "textColor")
         datePicker.minimumDate = Date()
         locationManager.delegate = self
         navigationController?.navigationBar.barTintColor = UIColor(red: 31/255, green: 39/255, blue: 144/255, alpha: 1)
@@ -86,7 +91,7 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func onEventPressed(_ sender: UITextField) {
-        congratsLabel.text = ""
+        congratsLabel.text = "Fill out the above details."
     }
     
     func createTrip() {
