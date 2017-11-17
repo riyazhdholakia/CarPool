@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <imageView key="tableFooterView" userInteractionEnabled="NO" tag="12" contentMode="bottomRight" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carpoolworld_car_500-2" id="L5H-0i-jRW">
+                        <imageView key="tableFooterView" userInteractionEnabled="NO" tag="12" contentMode="redraw" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carpool-image" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="L5H-0i-jRW">
                             <rect key="frame" x="0.0" y="176" width="375" height="439"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -975,7 +975,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="carpoolworld_car_500-2" width="250" height="149"/>
+        <image name="carpool-image" width="950" height="950"/>
         <image name="greenthumbsup" width="141" height="147"/>
         <image name="icons8-group-filled" width="25" height="25"/>
         <image name="icons8-menu-50" width="50" height="50"/>
