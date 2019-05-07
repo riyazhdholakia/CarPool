@@ -1,6 +1,28 @@
 # CarPool
-Car pool app for parents/kids @Codebasesav
+</ br>
+Carpool iPhone App for parents/kids to facilitate drop-offs and pick-ups to football games or other extracurricular activities.
+</ br>
 
-A way to collobrate with parents for CarPooling to events (like soccer games)
+Simple clone and run in Xcode to see our app
+</ br>
 
-Run in XCode to see our app
+Front-End in Swift:
+</ br>
+Riyazh Dholakia
+</ br>
+Naina Noorali
+</ br>
+Back-End:
+</ br>
+Max Howell
+</ br>
+Nathan Hosselton
+</ br>
+
+Language: Swift
+</ br>
+Database: Google's Firebase
+</ br>
+
+Made @codebasesaga
+
