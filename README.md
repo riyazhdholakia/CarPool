@@ -8,18 +8,18 @@ To run the app - clone and run in Xcode to see our app
 
 Front-End: Riyazh Dholakia & Naina Noorali
 <br />
-Back-End:Max Howell & Nathan Hosselton
+Back-End: Max Howell & Nathan Hosselton
 <br />
 
 Language: Swift
-</ br>
+<br />
 IDE: Xcode
-</ br>
+<br />
 Database: Google's Firebase
-</ br>
+<br />
 
 Other: CocoaPods and Homebrew
-</ br>
+<br />
 
 Made @codebasesaga
 
